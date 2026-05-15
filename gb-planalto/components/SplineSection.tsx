@@ -57,8 +57,8 @@ export default function SplineSection() {
               letterSpacing: '-0.01em',
             }}
           >
-            SINTA O JIU-JITSU<br />
-            <span style={{ color: '#F70000' }}>EM OUTRA DIMENSÃO</span>
+            ACOMPANHAMENTO<br />
+            <span style={{ color: '#F70000' }}>AUTOMÁTICO</span>
           </h2>
 
           {/* Body */}
@@ -71,9 +71,7 @@ export default function SplineSection() {
               fontWeight: 300,
             }}
           >
-            Interatividade que vai além do tatame. Explore técnicas, conheça
-            nossos campeões e descubra por que a Gracie Barra Planalto é
-            referência em Belo Horizonte.
+            Interatividade que vai além do tatame. Seu acompanhamento de evolução terá o olhar do professor alinhado com o acompanhamento de frequência automático pelo aplicativo NextFit.
           </p>
 
           {/* CTA */}
