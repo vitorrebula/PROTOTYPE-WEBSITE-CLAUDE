@@ -1,5 +1,6 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
+import SplineSection from "@/components/SplineSection";
 import StorySection from "@/components/StorySection";
 import MarqueeSection from "@/components/MarqueeSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
@@ -18,6 +19,7 @@ export default function Home() {
       <Nav />
       <Hero />
       <MarqueeSection />
+      <SplineSection />
       <StorySection />
       <TestimonialsSection />
       <ClassesSection />
