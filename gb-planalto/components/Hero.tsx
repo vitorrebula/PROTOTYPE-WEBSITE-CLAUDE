@@ -112,8 +112,8 @@ export default function Hero() {
             maxWidth: "900px",
           }}
         >
-          DISCIPLINE FORGES{" "}
-          <span style={{ color: "#F70000" }}>CHAMPIONS</span>
+          DISCIPLINA FORMA{" "}
+          <span style={{ color: "#F70000" }}>CAMPEÕES</span>
         </h1>
 
         {/* Sub */}
