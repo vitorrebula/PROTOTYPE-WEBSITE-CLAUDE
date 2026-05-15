@@ -80,6 +80,7 @@ export default function FacilitiesSection() {
                 <img
                   src={image.src}
                   alt={image.alt}
+                  onClick={() => window.open('https://instagram.com/gbplanalto', '_blank')}
                   className="h-full w-full scale-105 object-cover"
                   loading="lazy"
                 />
