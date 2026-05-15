@@ -53,7 +53,7 @@ export default function Hero() {
       {/* Background image with parallax */}
       <div ref={bgRef} className="absolute inset-0 will-change-transform">
         <img
-          src="https://picsum.photos/seed/martialarts/1920/1080"
+          src="./testefundo.jpeg"
           alt=""
           className="w-full h-full object-cover"
           style={{
