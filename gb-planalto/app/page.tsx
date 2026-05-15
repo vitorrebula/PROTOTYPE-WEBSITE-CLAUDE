@@ -3,7 +3,7 @@ import Hero from "@/components/Hero";
 import SplineSection from "@/components/SplineSection";
 import StorySection from "@/components/StorySection";
 import MarqueeSection from "@/components/MarqueeSection";
-import TestimonialsSection from "@/components/TestimonialsSection";
+import TestimonialsSection from "@/components/ui/testimonial-v2";
 import ClassesSection from "@/components/ClassesSection";
 import HowToStartSection from "@/components/HowToStartSection";
 import InstructorsSection from "@/components/InstructorsSection";
@@ -19,10 +19,10 @@ export default function Home() {
       <Nav />
       <Hero />
       <MarqueeSection />
-      <SplineSection />
       <StorySection />
-      <TestimonialsSection />
       <ClassesSection />
+      <SplineSection />
+      <TestimonialsSection />
       <HowToStartSection />
       <InstructorsSection />
       <AchievementsSection />
