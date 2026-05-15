@@ -9,6 +9,7 @@ import HowToStartSection from "@/components/HowToStartSection";
 import InstructorsSection from "@/components/InstructorsSection";
 import AchievementsSection from "@/components/AchievementsSection";
 import ScheduleSection from "@/components/ScheduleSection";
+import FacilitiesSection from "@/components/FacilitiesSection";
 import FAQSection from "@/components/FAQSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
@@ -25,8 +26,9 @@ export default function Home() {
       <TestimonialsSection />
       <HowToStartSection />
       <InstructorsSection />
-      <AchievementsSection />
       <ScheduleSection />
+      <AchievementsSection />
+      <FacilitiesSection />
       <FAQSection />
       <CTASection />
       <Footer />
