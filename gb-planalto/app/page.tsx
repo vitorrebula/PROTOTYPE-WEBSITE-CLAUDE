@@ -9,6 +9,7 @@ import HowToStartSection from "@/components/HowToStartSection";
 import InstructorsSection from "@/components/InstructorsSection";
 import AchievementsSection from "@/components/AchievementsSection";
 import ScheduleSection from "@/components/ScheduleSection";
+import ZoomParallaxSection from "@/components/ZoomParallaxSection";
 import FacilitiesSection from "@/components/FacilitiesSection";
 import FAQSection from "@/components/FAQSection";
 import CTASection from "@/components/CTASection";
@@ -28,6 +29,7 @@ export default function Home() {
       <InstructorsSection />
       <ScheduleSection />
       <AchievementsSection />
+      <ZoomParallaxSection />
       <FacilitiesSection />
       <FAQSection />
       <CTASection />
