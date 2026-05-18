@@ -5,30 +5,30 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const instructors = [
   {
-    name: "Prof. André Lima",
+    name: "Prof. Vinicius 'Jones' Almeida",
     belt: "Faixa Preta — 3° Grau",
     role: "Fundador & Head Coach",
     years: "18 anos de experiência",
-    bio: "Formado pela Gracie Barra International, André Lima construiu a academia com a missão de levar o jiu-jitsu de alto nível para Belo Horizonte. Campeão brasileiro e referência técnica da região.",
-    img: "https://picsum.photos/seed/instructor1/400/500",
+    bio: "Formado por Vinicius Draculino, Vinicius Jones construiu a academia com a missão de levar o jiu-jitsu de alto nível para Belo Horizonte. Campeão brasileiro e referência técnica da região.",
+    img: "./jonin.jpeg",
     specialties: ["Fundamentos", "Competição", "BJJ Adulto"],
   },
   {
-    name: "Prof. Guilherme Santos",
-    belt: "Faixa Preta — 1° Grau",
+    name: "Prof. Eduardo Laia",
+    belt: "Faixa Marrom — 4° Grau",
     role: "Instrutor Adulto & Competição",
     years: "12 anos de experiência",
-    bio: "Especialista em uke-goshi e guard passing. Guilherme coordena o time de competição e é responsável pelos resultados da equipe em campeonatos nacionais.",
+    bio: "Especialista em judô. Dudu coordena o time de competição e é responsável pelos resultados da equipe em campeonatos nacionais.",
     img: "https://picsum.photos/seed/instructor2/400/500",
-    specialties: ["Guard Passing", "Competição", "No-Gi"],
+    specialties: ["Quedas", "Competição", "No-Gi"],
   },
   {
-    name: "Prof. Fernanda Costa",
-    belt: "Faixa Roxa",
+    name: "Prof. Dadá",
+    belt: "Faixa Prata — 1° Grau",
     role: "Instrutora Feminino & Infantil",
     years: "7 anos de experiência",
-    bio: "Pioneira no programa feminino da academia, Fernanda criou um ambiente único de sororidade e técnica. Especialista em defesa pessoal para mulheres.",
-    img: "https://picsum.photos/seed/instructor3/400/500",
+    bio: "Pioneira no programa feminino da academia, Dadá criou um ambiente único de sororidade e técnica. Especialista em defesa pessoal para mulheres.",
+    img: "./dada.jpeg",
     specialties: ["Feminino", "Defesa Pessoal", "Infantil"],
   },
 ];
@@ -155,7 +155,7 @@ export default function InstructorsSection() {
                       alt={inst.name}
                       className="w-full h-full object-cover"
                       style={{
-                        filter: "grayscale(30%) brightness(0.7) contrast(1.05)",
+                        filter: "grayscale(0%) brightness(1) contrast(1.05)",
                         pointerEvents: "none",
                         draggable: false,
                       } as React.CSSProperties}
@@ -284,7 +284,6 @@ export default function InstructorsSection() {
                   src={inst.img}
                   alt={inst.name}
                   className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
-                  style={{ filter: "grayscale(30%) brightness(0.7) contrast(1.05)" }}
                 />
                 <div
                   className="absolute inset-0"

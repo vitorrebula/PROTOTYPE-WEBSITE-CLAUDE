@@ -8,7 +8,7 @@ type DaySchedule = Record<string, ScheduleItem[]>;
 
 const schedule: DaySchedule = {
   "Seg": [
-    { time: "06:30", label: "Adulto Fund.", type: "adulto" },
+    { time: "07:00", label: "Jiu jitsu", type: "adulto" },
     { time: "07:30", label: "Adulto Fund.", type: "adulto" },
     { time: "11:30", label: "Adulto Fund.", type: "adulto" },
     { time: "17:00", label: "Infantil", type: "infantil" },
@@ -17,7 +17,7 @@ const schedule: DaySchedule = {
     { time: "20:30", label: "Competição", type: "competicao" },
   ],
   "Ter": [
-    { time: "06:30", label: "Adulto Fund.", type: "adulto" },
+    { time: "07:00", label: "Jiu jitsu", type: "adulto" },
     { time: "11:30", label: "Feminino", type: "feminino" },
     { time: "17:00", label: "Juvenil", type: "juvenil" },
     { time: "18:30", label: "Adulto Avançado", type: "adulto" },
@@ -25,7 +25,7 @@ const schedule: DaySchedule = {
     { time: "20:30", label: "No-Gi", type: "adulto" },
   ],
   "Qua": [
-    { time: "06:30", label: "Adulto Fund.", type: "adulto" },
+    { time: "07:00", label: "Jiu jitsu", type: "adulto" },
     { time: "07:30", label: "Adulto Fund.", type: "adulto" },
     { time: "11:30", label: "Adulto Fund.", type: "adulto" },
     { time: "17:00", label: "Infantil", type: "infantil" },
@@ -34,14 +34,14 @@ const schedule: DaySchedule = {
     { time: "20:30", label: "Competição", type: "competicao" },
   ],
   "Qui": [
-    { time: "06:30", label: "Adulto Fund.", type: "adulto" },
+    { time: "07:00", label: "Jiu jitsu", type: "adulto" },
     { time: "11:30", label: "Adulto Fund.", type: "adulto" },
     { time: "17:00", label: "Juvenil", type: "juvenil" },
     { time: "18:30", label: "Adulto Avançado", type: "adulto" },
     { time: "19:30", label: "Adulto Fund.", type: "adulto" },
   ],
   "Sex": [
-    { time: "06:30", label: "Adulto Fund.", type: "adulto" },
+    { time: "07:00", label: "Jiu jitsu - NOGI", type: "adulto" },
     { time: "07:30", label: "Adulto Fund.", type: "adulto" },
     { time: "11:30", label: "Feminino", type: "feminino" },
     { time: "17:00", label: "Infantil", type: "infantil" },
@@ -50,10 +50,8 @@ const schedule: DaySchedule = {
     { time: "20:30", label: "Competição", type: "competicao" },
   ],
   "Sáb": [
-    { time: "08:00", label: "Adulto Fund.", type: "adulto" },
-    { time: "09:00", label: "Infantil", type: "infantil" },
     { time: "10:00", label: "Competição", type: "competicao" },
-    { time: "11:00", label: "Feminino", type: "feminino" },
+    { time: "11:00", label: "Jiu jitsu - Treino Livre", type: "adulto" },
   ],
 };
 

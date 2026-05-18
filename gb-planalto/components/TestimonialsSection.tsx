@@ -140,7 +140,7 @@ export default function TestimonialsSection() {
 
         {/* Testimonial card — draggable */}
         <div
-          className="relative grid md:grid-cols-2 gap-8 md:gap-12 items-center panel-in"
+          className="relative grid md:grid-cols-2 gap-8 md:gap-12 items-center panel-in w-full"
           key={active}
           style={{
             cursor: dragging ? "grabbing" : "grab",
@@ -152,7 +152,7 @@ export default function TestimonialsSection() {
           onPointerCancel={handlePointerCancel}
         >
           {/* Image side */}
-          <div className="relative">
+          <div className="relative w-full max-w-md mx-auto md:max-w-none md:mx-0">
             <div
               className="relative overflow-hidden"
               style={{ borderRadius: "14px", aspectRatio: "4/3" }}
@@ -174,15 +174,15 @@ export default function TestimonialsSection() {
                 }}
               />
             </div>
-            {/* Accent border */}
+            {/* Accent border — hidden on mobile to avoid overflow misalignment */}
             <div
-              className="absolute -bottom-3 -left-3 right-6 h-full rounded-[14px] -z-10"
+              className="hidden md:block absolute -bottom-3 -left-3 right-6 h-full rounded-[14px] -z-10"
               style={{ border: "2px solid rgba(247,0,0,0.25)" }}
             />
           </div>
 
           {/* Text side */}
-          <div className="flex flex-col justify-center pt-4 md:pt-0">
+          <div className="flex flex-col justify-center items-start pt-4 md:pt-0 w-full">
             <div className="flex gap-1 mb-5 md:mb-6">
               {Array.from({ length: t.stars }).map((_, i) => (
                 <StarIcon key={i} size={18} weight="fill" style={{ color: "#F70000" }} />

@@ -59,8 +59,8 @@ export default function ZoomParallaxSection() {
 						fontSize: 'clamp(2.5rem, 6vw, 5rem)',
 					}}
 				>
-					VIVA O{' '}
-					<span style={{ color: '#F70000' }}>JIU-JITSU</span>
+					Nova
+					<span style={{ color: '#F70000' }}> GB Planalto</span>
 				</h2>
 			</div>
 
