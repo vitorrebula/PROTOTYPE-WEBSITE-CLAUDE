@@ -1,233 +1,427 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
+import { Shield, Users, Trophy, Heart } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+
+const milestones = [
+  { year: "1986", title: "Nasce a Gracie Barra",      body: "Master Carlos Gracie Jr. funda a Gracie Barra no Rio de Janeiro, marcando uma nova era no Jiu-Jitsu mundial." },
+  { year: "2014", title: "GB Planalto abre as portas", body: "A unidade Planalto inicia suas atividades em Belo Horizonte com a missão de formar atletas e cidadãos." },
+  { year: "2019", title: "1ª Faixa Preta da casa",     body: "Primeiro aluno graduado faixa preta dentro do método — uma jornada de disciplina concluída." },
+  { year: "2022", title: "Time de competição",          body: "Estruturamos um time de alto rendimento, com pódios em campeonatos estaduais e nacionais." },
+  { year: "2025", title: "Mais de 500 alunos ativos",  body: "Hoje somos uma das maiores famílias Gracie Barra de Minas Gerais — disciplina virou rotina." },
+];
+
+const values = [
+  { Icon: Shield, title: "Disciplina", body: "A base de tudo. O tatame ensina o que a rua exige.", red: true  },
+  { Icon: Users,  title: "Família",    body: "Uma comunidade que torce, treina e cresce junta.",  red: false },
+  { Icon: Trophy, title: "Excelência", body: "Currículo oficial Gracie Barra, sem atalhos.",       red: true  },
+  { Icon: Heart,  title: "Respeito",   body: "Etiqueta, hierarquia e cuidado em cada aula.",       red: false },
+];
+
+const EASE = "cubic-bezier(0.32, 0.72, 0, 1)";
 
 export default function StorySection() {
   const sectionRef = useRef<HTMLElement>(null);
   useScrollReveal(sectionRef);
 
+  const [activeIdx, setActiveIdx] = useState(0);
+  const [paused,    setPaused]    = useState(false);
+  const touchStartX = useRef(0);
+
+  useEffect(() => {
+    if (paused) return;
+    const id = setInterval(() => setActiveIdx((i) => (i + 1) % milestones.length), 3200);
+    return () => clearInterval(id);
+  }, [paused]);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+    setPaused(true);
+  };
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    const delta = touchStartX.current - e.changedTouches[0].clientX;
+    if (Math.abs(delta) > 40)
+      setActiveIdx((i) => delta > 0 ? Math.min(i + 1, milestones.length - 1) : Math.max(i - 1, 0));
+    setTimeout(() => setPaused(false), 2000);
+  };
+  const goTo = (i: number) => {
+    setActiveIdx(i);
+    setPaused(true);
+    setTimeout(() => setPaused(false), 5000);
+  };
+
   return (
     <section
-      id="historia"
+      id="sobre"
       ref={sectionRef}
-      className="relative py-32 md:py-48 overflow-hidden"
+      className="relative overflow-hidden story-section"
       style={{ background: "#07101F" }}
     >
-      {/* Ambient glow */}
+      {/* ambient glow */}
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] rounded-full pointer-events-none"
-        style={{
-          background: "radial-gradient(ellipse at center, rgba(6,42,113,0.25) 0%, transparent 70%)",
-          filter: "blur(60px)",
-        }}
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[700px] rounded-full pointer-events-none"
+        style={{ background: "radial-gradient(ellipse at center, rgba(6,42,113,0.22) 0%, transparent 70%)", filter: "blur(80px)" }}
       />
 
-      <div className="relative z-10 w-full max-w-6xl mx-auto px-6">
-        {/* Label */}
-        <div className="flex items-center gap-4 mb-16 fade-up">
-          <div className="accent-line" />
-          <span
-            className="text-xs tracking-[0.25em] uppercase"
-            style={{ color: "rgba(255,255,255,0.4)", fontFamily: "var(--font-lato), Lato, sans-serif" }}
-          >
-            Nossa História
-          </span>
+      <div
+        className="relative z-10 w-full max-w-6xl mx-auto story-inner"
+        style={{ display: "grid", gridTemplateColumns: "minmax(0,1fr)", gap: "clamp(48px, 8vw, 80px)" }}
+      >
+
+        {/* ── Header ── */}
+        <div
+          className="story-hdr"
+          style={{ display: "grid", gap: 40, gridTemplateColumns: "minmax(0,1.05fr) minmax(0,1fr)", alignItems: "end" }}
+        >
+          <div className="fade-up">
+            <div className="flex items-center gap-3 mb-5">
+              <div className="accent-line" />
+              <span style={{ fontFamily: "var(--font-body)", fontSize: 11, fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: "rgba(255,255,255,0.45)" }}>
+                A Academia
+              </span>
+            </div>
+            <h2 style={{
+              fontFamily: "var(--font-display)", fontWeight: 800, lineHeight: 1,
+              fontSize: "clamp(2.4rem, 5vw, 4rem)", color: "#fff",
+              textTransform: "uppercase", letterSpacing: "-0.01em", margin: 0,
+            }}>
+              Uma família,<br />
+              <span style={{ color: "var(--gb-red)" }}>uma missão.</span>
+            </h2>
+          </div>
+
+          <p className="fade-up delay-100" style={{
+            fontFamily: "var(--font-body)", fontWeight: 300, lineHeight: 1.7,
+            fontSize: "clamp(0.95rem, 1.4vw, 1.05rem)", color: "rgba(255,255,255,0.62)", margin: 0,
+          }}>
+            A Gracie Barra Planalto é mais do que uma academia — é um espaço onde pessoas comuns
+            descobrem o extraordinário em si mesmas. Nosso método preserva a tradição de Master
+            Carlos Gracie Jr. e entrega Jiu-Jitsu de{" "}
+            <strong style={{ color: "#fff", fontWeight: 700 }}>alto nível</strong> para todas as
+            idades, todos os corpos, todos os objetivos.
+          </p>
         </div>
 
-        {/* Bento grid */}
-        <div className="grid grid-cols-12 gap-4 auto-rows-[280px] grid-flow-dense">
-
-          {/* Card A — large hero story card (col 7, row 2) */}
+        {/* ── Image + Values ── */}
+        <div
+          className="story-media"
+          style={{ display: "grid", gridTemplateColumns: "minmax(0,1.1fr) minmax(0,1fr)", gap: 24 }}
+        >
+          {/* Big image — Double-Bezel */}
           <div
-            className="col-span-12 md:col-span-7 md:row-span-2 relative overflow-hidden rounded-[14px] fade-up group min-h-[400px] md:min-h-[560px]"
-            style={{ background: "#062A71" }}
-          >
-            <img
-              src="https://picsum.photos/seed/jiujitsu1/800/600"
-              alt="Academia GB Planalto"
-              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              style={{ filter: "grayscale(20%) brightness(0.45) contrast(1.1)", mixBlendMode: "luminosity" }}
-            />
-            <div
-              className="absolute inset-0"
-              style={{
-                background: "linear-gradient(135deg, rgba(6,42,113,0.85) 0%, rgba(0,0,0,0.3) 100%)",
-              }}
-            />
-            <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-end">
-              <h2
-                className="text-white leading-none mb-4"
-                style={{
-                  fontFamily: "var(--font-barlow), Barlow Condensed, sans-serif",
-                  fontWeight: 800,
-                  fontSize: "clamp(2.5rem, 5vw, 4rem)",
-                }}
-              >
-                UMA FAMÍLIA,<br />
-                <span style={{ color: "#F70000" }}>UMA MISSÃO.</span>
-              </h2>
-              <p
-                className="max-w-md leading-relaxed"
-                style={{
-                  fontFamily: "var(--font-lato), Lato, sans-serif",
-                  fontSize: "16px",
-                  color: "rgba(255,255,255,0.75)",
-                  fontWeight: 300,
-                }}
-              >
-                Fundada com o propósito de transformar vidas através do
-                jiu-jitsu, a Gracie Barra Planalto é um espaço onde disciplina,
-                respeito e evolução constante fazem parte de cada aula.
-              </p>
-            </div>
-          </div>
-
-          {/* Card B — mission */}
-          <div
-            className="col-span-12 md:col-span-5 relative overflow-hidden rounded-[14px] fade-up delay-200 group cursor-pointer"
-            style={{ background: "#0F1A2E", border: "1px solid rgba(255,255,255,0.10)" }}
-          >
-            <div className="absolute inset-0 p-8 flex flex-col justify-between">
-              <div
-                className="w-10 h-10 rounded-sm flex items-center justify-center"
-                style={{ background: "rgba(247,0,0,0.12)", border: "1px solid rgba(247,0,0,0.2)" }}
-              >
-                <div className="w-4 h-4 rounded-sm" style={{ background: "#F70000" }} />
-              </div>
-              <div>
-                <h3
-                  className="text-white text-2xl mb-3"
-                  style={{ fontFamily: "var(--font-barlow), Barlow Condensed, sans-serif", fontWeight: 700 }}
-                >
-                  Metodologia Gracie Barra
-                </h3>
-                <p
-                  style={{
-                    fontFamily: "var(--font-lato), Lato, sans-serif",
-                    fontSize: "14px",
-                    color: "rgba(255,255,255,0.55)",
-                    lineHeight: 1.7,
-                  }}
-                >
-                  Um currículo estruturado, reconhecido mundialmente, que leva
-                  você do fundamento básico ao alto rendimento.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Card C — community */}
-          <div
-            className="col-span-12 md:col-span-3 relative overflow-hidden rounded-[14px] fade-up delay-300"
-            style={{ background: "#F70000" }}
-          >
-            <div className="absolute inset-0 p-8 flex flex-col justify-between">
-              <span
-                className="text-white/40 text-xs tracking-widest uppercase"
-                style={{ fontFamily: "var(--font-lato), Lato, sans-serif" }}
-              >
-                Comunidade
-              </span>
-              <div>
-                <p
-                  className="text-white leading-tight"
-                  style={{
-                    fontFamily: "var(--font-barlow), Barlow Condensed, sans-serif",
-                    fontWeight: 700,
-                    fontSize: "clamp(1.8rem, 3vw, 2.5rem)",
-                  }}
-                >
-                  "Jiu-Jitsu para Todos"
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Card D — values */}
-          <div
-            className="col-span-12 md:col-span-4 relative overflow-hidden rounded-[14px] fade-up delay-400 group"
-            style={{ background: "#0F1A2E", border: "1px solid rgba(255,255,255,0.10)" }}
-          >
-            <img
-              src="https://picsum.photos/seed/bjjteam/600/400"
-              alt="Comunidade GB"
-              className="absolute inset-0 w-full h-full object-cover opacity-25 transition-all duration-700 group-hover:opacity-35 group-hover:scale-105"
-              style={{ filter: "grayscale(80%)" }}
-            />
-            <div className="absolute inset-0 p-8 flex flex-col justify-end">
-              <div className="flex items-center gap-4 mb-4">
-                {["Disciplina", "Respeito", "Família"].map((v) => (
-                  <span
-                    key={v}
-                    className="text-xs py-1 px-3 rounded-full"
-                    style={{
-                      fontFamily: "var(--font-lato), Lato, sans-serif",
-                      background: "rgba(255,255,255,0.08)",
-                      border: "1px solid rgba(255,255,255,0.12)",
-                      color: "rgba(255,255,255,0.7)",
-                    }}
-                  >
-                    {v}
-                  </span>
-                ))}
-              </div>
-              <h3
-                className="text-white"
-                style={{
-                  fontFamily: "var(--font-barlow), Barlow Condensed, sans-serif",
-                  fontWeight: 700,
-                  fontSize: "22px",
-                }}
-              >
-                Valores que transformam
-              </h3>
-            </div>
-          </div>
-
-          {/* Card E — location */}
-          <div
-            className="col-span-12 md:col-span-5 relative overflow-hidden rounded-[14px] fade-up delay-500"
+            className="fade-up story-img-bezel"
             style={{
-              background: "linear-gradient(135deg, #062A71 0%, #03174A 100%)",
+              padding: 6,
+              borderRadius: 20,
+              background: "rgba(255,255,255,0.04)",
               border: "1px solid rgba(255,255,255,0.08)",
             }}
           >
-            <div className="absolute inset-0 p-8 flex flex-col justify-between">
-              <span
-                className="text-white/40 text-xs tracking-widest uppercase"
-                style={{ fontFamily: "var(--font-lato), Lato, sans-serif" }}
-              >
-                Belo Horizonte · MG
-              </span>
-              <div>
-                <h3
-                  className="text-white mb-3"
-                  style={{
-                    fontFamily: "var(--font-barlow), Barlow Condensed, sans-serif",
-                    fontWeight: 700,
-                    fontSize: "clamp(1.8rem, 3vw, 2.5rem)",
-                    lineHeight: 1.1,
-                  }}
-                >
-                  PLANALTO,<br />O SEU TATAME.
-                </h3>
-                <p
-                  style={{
-                    fontFamily: "var(--font-lato), Lato, sans-serif",
-                    fontSize: "14px",
-                    color: "rgba(255,255,255,0.55)",
-                  }}
-                >
-                  Um ambiente moderno, estruturado e acolhedor, pronto para
-                  receber você do primeiro ao último dia da sua jornada.
-                </p>
+            <div
+              className="story-img-inner"
+              style={{
+                position: "relative", borderRadius: 15, overflow: "hidden",
+                minHeight: 480, background: "#0F1A2E",
+                boxShadow: "inset 0 1px 1px rgba(255,255,255,0.08)",
+              }}
+            >
+              <img
+                src="./turmadada.jpeg"
+                alt="Turma da Gracie Barra Planalto"
+                style={{
+                  position: "absolute", inset: 0, width: "100%", height: "100%",
+                  objectFit: "cover", filter: "grayscale(15%) contrast(1.05) brightness(0.72)",
+                }}
+              />
+              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(7,16,31,0.15) 0%, rgba(7,16,31,0.9) 100%)" }} />
+              <div style={{ position: "absolute", inset: 0, padding: 32, display: "flex", flexDirection: "column", justifyContent: "flex-end" }}>
+                <div style={{
+                  display: "inline-flex", alignSelf: "flex-start",
+                  padding: "5px 12px", background: "var(--gb-red)", borderRadius: 4,
+                  fontFamily: "var(--font-body)", fontSize: 10, fontWeight: 700,
+                  letterSpacing: "0.22em", textTransform: "uppercase", color: "#fff", marginBottom: 14,
+                }}>
+                  Família GB Planalto
+                </div>
+                <div style={{
+                  fontFamily: "var(--font-display)", fontWeight: 800,
+                  fontSize: "clamp(1.6rem, 3vw, 2.4rem)", lineHeight: 1, color: "#fff",
+                  textTransform: "uppercase", letterSpacing: "-0.01em", maxWidth: 400,
+                }}>
+                  Disciplina forma <span style={{ color: "var(--gb-red)" }}>campeões.</span>
+                </div>
+                <div style={{
+                  marginTop: 18, display: "flex", alignItems: "center", gap: 20,
+                  color: "rgba(255,255,255,0.65)", fontSize: 11,
+                  letterSpacing: "0.18em", textTransform: "uppercase", fontWeight: 600,
+                }}>
+                  <span>Bairro Planalto · BH</span>
+                  <span style={{ width: 4, height: 4, background: "rgba(255,255,255,0.35)", borderRadius: 999 }} />
+                  <span>Desde 2014</span>
+                </div>
               </div>
             </div>
           </div>
 
+          {/* Values — Double-Bezel cards */}
+          <div className="fade-up delay-100 story-values" style={{ display: "grid", gridTemplateColumns: "minmax(0,1fr) minmax(0,1fr)", gap: 12 }}>
+            {values.map(({ Icon, title, body, red }) => (
+              <div
+                key={title}
+                className="value-card-outer"
+                style={{
+                  padding: 4, borderRadius: 18,
+                  background: red
+                    ? "linear-gradient(135deg, rgba(247,0,0,0.1) 0%, rgba(247,0,0,0.04) 100%)"
+                    : "linear-gradient(135deg, rgba(6,42,113,0.18) 0%, rgba(6,42,113,0.06) 100%)",
+                  border: `1px solid ${red ? "rgba(247,0,0,0.14)" : "rgba(6,42,113,0.35)"}`,
+                  transition: `border-color 400ms ${EASE}, transform 400ms ${EASE}`,
+                  cursor: "default",
+                  willChange: "transform",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = red ? "rgba(247,0,0,0.4)" : "rgba(49,125,195,0.5)";
+                  e.currentTarget.style.transform = "translateY(-5px)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = red ? "rgba(247,0,0,0.14)" : "rgba(6,42,113,0.35)";
+                  e.currentTarget.style.transform = "translateY(0)";
+                }}
+              >
+                <div
+                  className="value-card-inner"
+                  style={{
+                    padding: 20, borderRadius: 15,
+                    background: "#0C1628",
+                    boxShadow: "inset 0 1px 1px rgba(255,255,255,0.06)",
+                    height: "100%",
+                  }}
+                >
+                  <div style={{
+                    width: 40, height: 40, borderRadius: 10, marginBottom: 14,
+                    background: red ? "rgba(247,0,0,0.12)" : "rgba(6,42,113,0.3)",
+                    border: `1px solid ${red ? "rgba(247,0,0,0.28)" : "rgba(49,125,195,0.3)"}`,
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    color: red ? "var(--gb-red)" : "#5B9BD5",
+                  }}>
+                    <Icon size={20} strokeWidth={1.5} />
+                  </div>
+                  <h4 className="value-card-title" style={{
+                    fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 18,
+                    color: "#fff", letterSpacing: "0.02em", textTransform: "uppercase",
+                    margin: "0 0 7px",
+                  }}>
+                    {title}
+                  </h4>
+                  <p className="value-card-body" style={{
+                    fontFamily: "var(--font-body)", fontWeight: 300, fontSize: 13,
+                    lineHeight: 1.55, color: "rgba(255,255,255,0.58)", margin: 0,
+                  }}>
+                    {body}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* ── Timeline ── */}
+        <div className="fade-up">
+          <div className="flex items-center gap-3 mb-7">
+            <div className="accent-line" />
+            <span style={{ fontFamily: "var(--font-body)", fontSize: 11, fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: "rgba(255,255,255,0.45)" }}>
+              Linha do Tempo
+            </span>
+          </div>
+
+          {/* Desktop horizontal */}
+          <div className="timeline-desk" style={{ position: "relative" }}>
+            <div style={{
+              position: "absolute", left: 0, right: 0, top: 28, height: 1,
+              background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.18) 8%, rgba(255,255,255,0.18) 92%, transparent)",
+            }} />
+            <div style={{ display: "grid", gridTemplateColumns: `repeat(${milestones.length}, 1fr)`, gap: 24 }}>
+              {milestones.map((m, i) => {
+                const last = i === milestones.length - 1;
+                return (
+                  <div key={m.year} className="fade-up" style={{ position: "relative", transitionDelay: `${i * 80}ms` }}>
+                    <div style={{
+                      width: 14, height: 14, borderRadius: 999, marginTop: 22, marginBottom: 24,
+                      background: last ? "var(--gb-red)" : "#fff",
+                      boxShadow: last ? "0 0 0 6px rgba(205,3,3,0.18)" : "0 0 0 4px rgba(255,255,255,0.08)",
+                    }} />
+                    <div style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: 28, color: last ? "var(--gb-red)" : "#fff", letterSpacing: "-0.01em", lineHeight: 1, marginBottom: 8 }}>
+                      {m.year}
+                    </div>
+                    <div style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 15, color: "#fff", textTransform: "uppercase", letterSpacing: "0.04em", marginBottom: 10, lineHeight: 1.2 }}>
+                      {m.title}
+                    </div>
+                    <p style={{ fontFamily: "var(--font-body)", fontWeight: 300, fontSize: 12.5, lineHeight: 1.55, color: "rgba(255,255,255,0.55)", margin: 0 }}>
+                      {m.body}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Mobile carousel — Double-Bezel */}
+          <div
+            className="timeline-mob"
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+            onMouseEnter={() => setPaused(true)}
+            onMouseLeave={() => setPaused(false)}
+          >
+            {/* outer shell */}
+            <div style={{
+              padding: 5, borderRadius: 22,
+              background: "rgba(255,255,255,0.03)",
+              border: "1px solid rgba(255,255,255,0.07)",
+            }}>
+              {/* inner core */}
+              <div style={{
+                position: "relative", overflow: "hidden", borderRadius: 18,
+                background: "#0C1628",
+                boxShadow: "inset 0 1px 1px rgba(255,255,255,0.06)",
+              }}>
+                {/* progress track */}
+                <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 2, background: "rgba(255,255,255,0.06)", zIndex: 2 }}>
+                  <div
+                    key={`bar-${activeIdx}`}
+                    style={{
+                      height: "100%", background: "var(--gb-red)", borderRadius: 2,
+                      animation: paused ? "none" : "tl-progress 3.2s linear forwards",
+                      width: paused ? "100%" : undefined,
+                    }}
+                  />
+                </div>
+
+                {/* slide strip */}
+                <div style={{
+                  display: "flex",
+                  transform: `translateX(-${activeIdx * 100}%)`,
+                  transition: `transform 0.5s ${EASE}`,
+                }}>
+                  {milestones.map((m, i) => {
+                    const last = i === milestones.length - 1;
+                    return (
+                      <div key={m.year} style={{ flexShrink: 0, width: "100%", padding: "36px 28px 32px" }}>
+                        {/* step badge */}
+                        <div style={{
+                          display: "inline-flex", alignItems: "center", gap: 8,
+                          padding: "4px 10px 4px 4px",
+                          background: "rgba(255,255,255,0.05)", borderRadius: 999,
+                          border: "1px solid rgba(255,255,255,0.08)",
+                          marginBottom: 20,
+                        }}>
+                          <div style={{
+                            width: 22, height: 22, borderRadius: 999,
+                            background: last ? "var(--gb-red)" : "rgba(255,255,255,0.12)",
+                            display: "flex", alignItems: "center", justifyContent: "center",
+                            fontSize: 10, fontWeight: 700, color: "#fff",
+                            fontFamily: "var(--font-display)",
+                          }}>
+                            {i + 1}
+                          </div>
+                          <span style={{ fontFamily: "var(--font-body)", fontSize: 11, fontWeight: 600, letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(255,255,255,0.4)" }}>
+                            {i + 1} de {milestones.length}
+                          </span>
+                        </div>
+
+                        <div style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: 56, color: last ? "var(--gb-red)" : "#fff", letterSpacing: "-0.025em", lineHeight: 1, marginBottom: 10 }}>
+                          {m.year}
+                        </div>
+                        <div style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 17, color: "#fff", textTransform: "uppercase", letterSpacing: "0.04em", marginBottom: 14, lineHeight: 1.2 }}>
+                          {m.title}
+                        </div>
+                        <p style={{ fontFamily: "var(--font-body)", fontWeight: 300, fontSize: 14.5, lineHeight: 1.65, color: "rgba(255,255,255,0.58)", margin: 0 }}>
+                          {m.body}
+                        </p>
+
+                        {/* swipe hint — only on first slide */}
+                        {i === 0 && (
+                          <div style={{ marginTop: 24, display: "flex", alignItems: "center", gap: 8, color: "rgba(255,255,255,0.28)", fontSize: 11, letterSpacing: "0.1em" }}>
+                            <svg width="16" height="10" viewBox="0 0 16 10" fill="none">
+                              <path d="M1 5h14M9 1l5 4-5 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                            <span style={{ fontFamily: "var(--font-body)", fontWeight: 500, textTransform: "uppercase" }}>deslize</span>
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+
+            {/* dots — 44px touch target */}
+            <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 4, marginTop: 16 }}>
+              {milestones.map((m, i) => (
+                <button
+                  key={i}
+                  onClick={() => goTo(i)}
+                  aria-label={`Ir para ${m.year}`}
+                  style={{
+                    minWidth: 44, minHeight: 44,
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    background: "none", border: "none", padding: 0, cursor: "pointer",
+                  }}
+                >
+                  <span style={{
+                    display: "block",
+                    width: activeIdx === i ? 32 : 8, height: 8, borderRadius: 999,
+                    background: activeIdx === i ? "var(--gb-red)" : "rgba(255,255,255,0.2)",
+                    transition: `all 0.4s ${EASE}`,
+                  }} />
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
+
+      <style>{`
+        @keyframes tl-progress {
+          from { width: 0%; }
+          to   { width: 100%; }
+        }
+
+        .story-section { padding-top: clamp(72px, 10vw, 128px); padding-bottom: clamp(72px, 10vw, 128px); overflow: hidden; }
+        .story-inner { overflow: hidden; }
+
+        @media (min-width: 769px) {
+          .story-inner        { padding-left: 24px; padding-right: 24px; }
+          .story-hdr          { grid-template-columns: minmax(0,1.05fr) minmax(0,1fr) !important; }
+          .story-media        { grid-template-columns: minmax(0,1.1fr) minmax(0,1fr) !important; }
+          .story-values       { grid-template-columns: minmax(0,1fr) minmax(0,1fr) !important; }
+          .timeline-desk      { display: block !important; }
+          .timeline-mob       { display: none !important; }
+        }
+
+        @media (max-width: 768px) {
+          .story-inner        { padding-left: 16px; padding-right: 16px; }
+          .story-hdr          { grid-template-columns: 1fr !important; gap: 20px !important; }
+          .story-media        { grid-template-columns: 1fr !important; }
+          .story-img-inner    { min-height: 300px !important; }
+          .story-values       { grid-template-columns: minmax(0,1fr) minmax(0,1fr) !important; gap: 10px !important; }
+          .value-card-inner   { padding: 16px !important; }
+          .value-card-title   { font-size: 15px !important; }
+          .value-card-body    { font-size: 12px !important; }
+          .story-img-bezel    { border-radius: 18px !important; }
+          .timeline-desk      { display: none !important; }
+          .timeline-mob       { display: block !important; }
+        }
+
+        @media (max-width: 480px) {
+          .story-inner        { padding-left: 14px; padding-right: 14px; }
+          .story-values       { grid-template-columns: 1fr !important; gap: 8px !important; }
+          .value-card-inner   { padding: 14px !important; }
+          .value-card-title   { font-size: 14px !important; }
+          .value-card-body    { font-size: 12px !important; }
+        }
+      `}</style>
     </section>
   );
 }
