@@ -4,9 +4,9 @@ import { useEffect, useRef } from "react";
 import { ArrowRightIcon, WhatsappLogoIcon } from "@phosphor-icons/react";
 
 const stats = [
-  { value: "500+", label: "Alunos ativos" },
-  { value: "12+", label: "Anos de história" },
-  { value: "3", label: "Campeões mundiais" },
+  { value: "5+", label: "Anos de história" },
+  { value: "3", label: "Professores renomados" },
+  { value: "10", label: "Instrutores certificados PCI 2026" },
 ];
 
 export default function Hero() {
@@ -134,11 +134,13 @@ export default function Hero() {
         {/* CTAs */}
         <div ref={ctaRef} className="flex flex-wrap items-center justify-center gap-4 mb-16">
           <a
-            href="#aula"
+            href="https://venda.nextfit.com.br/bb3a987f-a6a8-4709-b7e1-8a30aa342ca5/contratos"
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn-primary group"
             style={{ fontSize: "15px", paddingLeft: "36px", paddingRight: "36px" }}
           >
-            Agendar Aula Experimental
+            Quero me Matricular
             <ArrowRightIcon
               size={18}
               className="transition-transform duration-300 group-hover:translate-x-1"

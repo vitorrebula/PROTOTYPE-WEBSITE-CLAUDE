@@ -6,30 +6,30 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 const instructors = [
   {
     name: "Prof. Vinicius 'Jones' Almeida",
-    belt: "Faixa Preta — 3° Grau",
+    belt: "Faixa Preta — 3 Graus",
     role: "Fundador & Head Coach",
-    years: "18 anos de experiência",
-    bio: "Formado por Vinicius Draculino, Vinicius Jones construiu a academia com a missão de levar o jiu-jitsu de alto nível para Belo Horizonte. Campeão brasileiro e referência técnica da região.",
+    years: "15 anos de experiência",
+    bio: "Graduado à faixa preta pelas mãos de Vinicius Draculino e também seguindo os passos de Sérgio Benini e Cláudio Caloquinha, Vinicius Jones construiu a academia com a missão de levar o legado de seus mestres adiante. Campeão brasileiro, mundial, mineiro, sulamericano, sulbrasileiro e referência técnica da região.",
     img: "./jonin.jpeg",
-    specialties: ["Fundamentos", "Competição", "BJJ Adulto"],
+    specialties: ["Fundamentos", "Competição", "Adulto"],
   },
   {
     name: "Prof. Eduardo Laia",
-    belt: "Faixa Marrom — 4° Grau",
+    belt: "Faixa Marrom — 4 Graus",
     role: "Instrutor Adulto & Competição",
-    years: "12 anos de experiência",
-    bio: "Especialista em judô. Dudu coordena o time de competição e é responsável pelos resultados da equipe em campeonatos nacionais.",
+    years: "14 anos de experiência",
+    bio: "Especialista em judô. Dudu coordena o time KIDS, um professor muito técnico e paciente, com didática que possibilita até os menos atléticos a desenvolver um jiu jitsu afiado.",
     img: "https://picsum.photos/seed/instructor2/400/500",
-    specialties: ["Quedas", "Competição", "No-Gi"],
+    specialties: ["KIDS", "Juvenil", "Adulto"],
   },
   {
     name: "Prof. Dadá",
-    belt: "Faixa Prata — 1° Grau",
+    belt: "Faixa Prata — 1 Grau",
     role: "Instrutora Feminino & Infantil",
-    years: "7 anos de experiência",
+    years: "15 anos de experiência",
     bio: "Pioneira no programa feminino da academia, Dadá criou um ambiente único de sororidade e técnica. Especialista em defesa pessoal para mulheres.",
     img: "./dada.jpeg",
-    specialties: ["Feminino", "Defesa Pessoal", "Infantil"],
+    specialties: ["Feminino", "Adulto"],
   },
 ];
 
@@ -139,13 +139,14 @@ export default function InstructorsSection() {
             }}
           >
             {instructors.map((inst) => (
-              <div key={inst.name} className="w-full flex-shrink-0">
+              <div key={inst.name} className="w-full flex-shrink-0 self-stretch">
                 <div
                   style={{
                     borderRadius: "14px",
                     border: "1px solid rgba(255,255,255,0.08)",
                     background: "#0F1A2E",
                     overflow: "hidden",
+                    height: "100%",
                   }}
                 >
                   {/* Image */}

@@ -10,7 +10,7 @@ const steps = [
     icon: CalendarBlankIcon,
     title: "Agende a aula",
     description:
-      "Escolha um horário que encaixa na sua rotina. Basta clicar no botão abaixo ou nos chamar no WhatsApp. É rápido e gratuito.",
+      "Escolha um horário que encaixa na sua rotina. Basta clicar no botão abaixo ou nos chamar no WhatsApp.",
   },
   {
     number: "02",

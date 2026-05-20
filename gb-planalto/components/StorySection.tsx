@@ -5,18 +5,17 @@ import { Shield, Users, Trophy, Heart } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const milestones = [
-  { year: "1986", title: "Nasce a Gracie Barra",      body: "Master Carlos Gracie Jr. funda a Gracie Barra no Rio de Janeiro, marcando uma nova era no Jiu-Jitsu mundial." },
-  { year: "2014", title: "GB Planalto abre as portas", body: "A unidade Planalto inicia suas atividades em Belo Horizonte com a missão de formar atletas e cidadãos." },
-  { year: "2019", title: "1ª Faixa Preta da casa",     body: "Primeiro aluno graduado faixa preta dentro do método — uma jornada de disciplina concluída." },
-  { year: "2022", title: "Time de competição",          body: "Estruturamos um time de alto rendimento, com pódios em campeonatos estaduais e nacionais." },
-  { year: "2025", title: "Mais de 500 alunos ativos",  body: "Hoje somos uma das maiores famílias Gracie Barra de Minas Gerais — disciplina virou rotina." },
+  { year: "2021", title: "Nasce a GB Planalto",              body: "A Gracie Barra Planalto abre suas portas em Belo Horizonte com a missão de espalhar o Jiu-Jitsu de alto nível." },
+  { year: "2024", title: "Campeão mundial IBJJF",            body: "Nosso professor torna-se campeão mundial da IBJJF em Las Vegas, Nevada — EUA. Uma conquista histórica para a academia." },
+  { year: "2025", title: "Primeiro faixa preta da casa",     body: "Nossa escola forma o primeiro aluno faixa preta — uma jornada de dedicação e disciplina concluída com honra." },
+  { year: "2026", title: "Inauguração da nova sede",         body: "Um novo capítulo começa: nossa nova sede, pensada para receber mais alunos e elevar ainda mais o nível técnico." },
 ];
 
 const values = [
-  { Icon: Shield, title: "Disciplina", body: "A base de tudo. O tatame ensina o que a rua exige.", red: true  },
-  { Icon: Users,  title: "Família",    body: "Uma comunidade que torce, treina e cresce junta.",  red: false },
-  { Icon: Trophy, title: "Excelência", body: "Currículo oficial Gracie Barra, sem atalhos.",       red: true  },
-  { Icon: Heart,  title: "Respeito",   body: "Etiqueta, hierarquia e cuidado em cada aula.",       red: false },
+  { Icon: Shield, title: "Disciplina",    body: "A base de tudo. É o segredo para evoluir a cada dia.",               red: true  },
+  { Icon: Users,  title: "Irmandade",     body: "Uma comunidade que treina, cresce e se apoia mutuamente.",           red: false },
+  { Icon: Trophy, title: "Integridade",   body: "Currículo oficial Gracie Barra — sem atalhos, sem compromissos.",    red: true  },
+  { Icon: Heart,  title: "Desenvolvimento", body: "Evolução técnica e humana para cada aluno, dentro e fora do tatame.", red: false },
 ];
 
 const EASE = "cubic-bezier(0.32, 0.72, 0, 1)";
@@ -96,10 +95,11 @@ export default function StorySection() {
             fontSize: "clamp(0.95rem, 1.4vw, 1.05rem)", color: "rgba(255,255,255,0.62)", margin: 0,
           }}>
             A Gracie Barra Planalto é mais do que uma academia — é um espaço onde pessoas comuns
-            descobrem o extraordinário em si mesmas. Nosso método preserva a tradição de Master
-            Carlos Gracie Jr. e entrega Jiu-Jitsu de{" "}
+            descobrem o extraordinário em si mesmas. Nossa escola preserva o método do{" "}
+            <strong style={{ color: "#fff", fontWeight: 700 }}>Mestre Carlos Gracie Jr.</strong>{" "}
+            e entrega Jiu-Jitsu de{" "}
             <strong style={{ color: "#fff", fontWeight: 700 }}>alto nível</strong> para todas as
-            idades, todos os corpos, todos os objetivos.
+            idades e todos os objetivos.
           </p>
         </div>
 
@@ -158,7 +158,7 @@ export default function StorySection() {
                 }}>
                   <span>Bairro Planalto · BH</span>
                   <span style={{ width: 4, height: 4, background: "rgba(255,255,255,0.35)", borderRadius: 999 }} />
-                  <span>Desde 2014</span>
+                  <span>Desde 2021</span>
                 </div>
               </div>
             </div>

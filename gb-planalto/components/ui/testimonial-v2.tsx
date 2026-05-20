@@ -98,7 +98,7 @@ const TestimonialCard = ({ text, image, name, role, stars }: Testimonial) => (
       y: -6,
       transition: { type: "spring", stiffness: 400, damping: 20 },
     }}
-    className="p-8 rounded-2xl border bg-white max-w-xs w-full cursor-default select-none list-none"
+    className="p-8 rounded-2xl border bg-white w-full md:max-w-xs cursor-default select-none list-none"
     style={{
       borderColor: "rgba(10,14,26,0.08)",
       boxShadow: "0 4px 24px rgba(10,14,26,0.06)",
@@ -226,7 +226,7 @@ export default function TestimonialsSection() {
             }}
           >
             QUEM TREINA,{" "}
-            <span style={{ color: "#F70000" }}>TRANSFORMA.</span>
+            <span style={{ color: "#F70000" }}>EVOLUI.</span>
           </h2>
           <p
             className="mt-5 max-w-sm"
@@ -243,11 +243,11 @@ export default function TestimonialsSection() {
 
         {/* Scrolling columns */}
         <div
-          className="flex justify-start gap-5 [mask-image:linear-gradient(to_bottom,transparent,black_8%,black_92%,transparent)] max-h-[680px] overflow-hidden"
+          className="flex justify-center md:justify-start gap-5 [mask-image:linear-gradient(to_bottom,transparent,black_8%,black_92%,transparent)] max-h-[680px] overflow-hidden"
           role="region"
           aria-label="Depoimentos em movimento"
         >
-          <TestimonialsColumn testimonials={firstColumn} duration={18} />
+          <TestimonialsColumn testimonials={firstColumn} duration={18} className="w-full md:w-auto" />
           <TestimonialsColumn
             testimonials={secondColumn}
             className="hidden md:block"

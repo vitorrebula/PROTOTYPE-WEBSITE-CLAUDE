@@ -8,37 +8,37 @@ const faqs = [
   {
     question: "Preciso ter experiência para começar?",
     answer:
-      "Não. A Gracie Barra Planalto recebe iniciantes absolutos todos os dias. As turmas de fundamentos foram criadas exatamente para quem nunca pisou num tatame. Você aprenderá do zero, com segurança e no seu ritmo.",
+      "Não. Não é necessária nenhuma experiência prévia. Aqui você vai evoluir e aprender a cada aula, como todo iniciante.",
   },
   {
     question: "Posso fazer uma aula experimental gratuita?",
     answer:
-      "Sim! Oferecemos uma aula experimental totalmente gratuita e sem compromisso. Você treina com a gente, conhece o ambiente, os professores e tira todas as suas dúvidas antes de qualquer decisão.",
+      "Sim! As aulas experimentais gratuitas precisam ser agendadas diretamente na recepção ou pelos nossos canais de contato.",
   },
   {
     question: "Qual é a idade mínima para começar?",
     answer:
-      "Crianças a partir de 4 anos já podem fazer parte da turma infantil. Para adultos, não há limite de idade — temos alunos de todas as faixas etárias, inclusive acima dos 50 anos.",
+      "Crianças a partir de 3 anos já podem fazer parte da turma infantil. Para adultos, a partir de 16 anos. Não há idade máxima — todos são bem-vindos.",
   },
   {
     question: "Preciso comprar kimono antes de começar?",
     answer:
-      "Não. Para a aula experimental, não é necessário kimono. Se você decidir se matricular, orientamos sobre o equipamento ideal. Temos parcerias que oferecem boas condições para os nossos alunos.",
+      "Não. Para a aula experimental de adultos, emprestamos um kimono Gracie Barra. Caso decida continuar, é necessário um kimono oficial, e te indicamos onde comprar.",
   },
   {
     question: "Existe turma exclusiva para mulheres?",
     answer:
-      "Sim. Temos um programa feminino com horários exclusivos, instrutoras qualificadas e um ambiente pensado para que mulheres se sintam completamente seguras e acolhidas no tatame.",
+      "Sim. Temos um programa feminino com horários exclusivos com a professora Raiane (Dadá), junto de instrutoras qualificadas e um ambiente pensado para que mulheres se sintam completamente seguras e acolhidas no tatame.",
   },
   {
     question: "Posso começar sendo sedentário?",
     answer:
-      "Com certeza. O jiu-jitsu é para todos os corpos e condicionamentos físicos. As primeiras aulas focam em técnica, não em intensidade. Você vai evoluir no seu próprio ritmo, e o jiu-jitsu em si já é um excelente exercício físico.",
+      "Com certeza. O jiu-jitsu é para todos os corpos e condicionamentos físicos. Você não precisa chegar em forma — pode começar exatamente como está.",
   },
   {
     question: "Quanto tempo leva para evoluir de faixa?",
     answer:
-      "A jornada é individual. Em média, a faixa azul leva de 1 a 2 anos com treinos regulares. A metodologia Gracie Barra tem um currículo claro que guia sua evolução, e os professores avaliam seu progresso com critério e respeito.",
+      "A jornada é individual. O desenvolvimento de cada aluno varia conforme dedicação e frequência nas aulas. Para graduar, é necessário cumprir um número mínimo de aulas, além de demonstrar competência técnica e maturidade. A metodologia Gracie Barra oferece um currículo estruturado que guia sua evolução em cada etapa.",
   },
 ];
 

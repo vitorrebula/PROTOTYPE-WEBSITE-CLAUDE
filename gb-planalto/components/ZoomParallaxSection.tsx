@@ -4,32 +4,32 @@ import { ZoomParallax } from '@/components/ui/zoom-parallax';
 
 const images = [
 	{
-		src: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1280&h=720&fit=crop&crop=entropy&auto=format&q=80',
-		alt: 'Treino de jiu-jitsu',
+		src: './1.jpeg',
+		alt: 'Projeto da academia',
 	},
 	{
-		src: 'https://images.unsplash.com/photo-1549060279-7e168fcee0c2?w=1280&h=720&fit=crop&crop=entropy&auto=format&q=80',
-		alt: 'Atletas treinando',
+		src: './2.jpeg',
+		alt: 'Projeto da academia',
 	},
 	{
-		src: 'https://images.unsplash.com/photo-1517963879433-6ad2b056d712?w=800&h=800&fit=crop&crop=entropy&auto=format&q=80',
-		alt: 'Arte marcial',
+		src: './3.jpeg',
+		alt: 'Projeto da academia',
 	},
 	{
-		src: 'https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?w=1280&h=720&fit=crop&crop=entropy&auto=format&q=80',
-		alt: 'Grappling',
+		src: './4.jpeg',
+		alt: 'Projeto da academia',
 	},
 	{
-		src: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=800&h=800&fit=crop&crop=entropy&auto=format&q=80',
-		alt: 'Treinamento físico',
+		src: './5.jpeg',
+		alt: 'Projeto da academia',
 	},
 	{
-		src: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1280&h=720&fit=crop&crop=entropy&auto=format&q=80',
-		alt: 'Academia de luta',
+		src: './6.jpeg',
+		alt: 'Projeto da academia',
 	},
 	{
-		src: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=1280&h=720&fit=crop&crop=entropy&auto=format&q=80',
-		alt: 'Equipe Gracie Barra',
+		src: './7.jpeg',
+		alt: 'Projeto da academia',
 	},
 ];
 
