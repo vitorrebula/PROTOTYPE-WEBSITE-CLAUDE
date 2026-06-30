@@ -140,7 +140,8 @@ export default function Hero() {
 
       <section
         id="inicio"
-        className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
+        className="relative flex flex-col items-center justify-center overflow-hidden"
+        style={{ height: "100svh", maxHeight: "100svh" }}
       >
         {/* Background image with parallax */}
         <div ref={bgRef} className="absolute inset-0 will-change-transform">
@@ -168,6 +169,19 @@ export default function Hero() {
           style={{ background: "linear-gradient(0deg, #07101F 0%, transparent 100%)" }}
         />
 
+        {/* Watermark logo */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
+          <img
+            src="./logo-gb.svg"
+            alt=""
+            style={{
+              width: "min(55vw, 600px)",
+              height: "auto",
+              opacity: 0.07,
+            }}
+          />
+        </div>
+
         {/* Red accent top */}
         <div
           className="absolute top-0 left-0 right-0 h-px"
@@ -175,29 +189,10 @@ export default function Hero() {
         />
 
         {/* Content */}
-        <div className="relative z-10 w-full max-w-6xl mx-auto px-6 flex flex-col items-center text-center pt-28 md:pt-24 pb-8">
-          {/* Logo */}
-          <div className="mb-8">
-            <div
-              className="rounded flex items-center justify-center mx-auto"
-              style={{
-                background: "#F70000",
-                width: "88px",
-                height: "88px",
-                boxShadow: "0 8px 40px rgba(247,0,0,0.35)",
-              }}
-            >
-              <img
-                src="./logo-gb.svg"
-                alt="Gracie Barra Planalto"
-                style={{ width: "64px", height: "64px", objectFit: "contain" }}
-              />
-            </div>
-          </div>
-
+        <div className="relative z-10 w-full max-w-6xl mx-auto px-6 flex flex-col items-center text-center pt-16 md:pt-20">
           {/* Eyebrow */}
           <div
-            className="flex items-center gap-3 mb-8"
+            className="flex items-center gap-3 mb-4 sm:mb-6"
             style={{ opacity: 0 }}
             ref={undefined}
           >
@@ -214,7 +209,7 @@ export default function Hero() {
           {/* Headline */}
           <h1
             ref={headlineRef}
-            className="w-full font-display text-white leading-none mb-6"
+            className="w-full font-display text-white leading-none mb-4 sm:mb-6"
             style={{
               fontFamily: "var(--font-barlow), Barlow Condensed, sans-serif",
               fontWeight: 800,
@@ -230,7 +225,7 @@ export default function Hero() {
           {/* Sub */}
           <p
             ref={subRef}
-            className="mb-10 leading-relaxed max-w-xl"
+            className="mb-6 sm:mb-8 leading-relaxed max-w-xl"
             style={{
               fontFamily: "var(--font-lato), Lato, sans-serif",
               fontSize: "18px",
@@ -243,7 +238,7 @@ export default function Hero() {
           </p>
 
           {/* CTA — single dropdown button */}
-          <div ref={ctaRef} className="flex flex-wrap items-center justify-center gap-4 mb-16">
+          <div ref={ctaRef} className="flex flex-wrap items-center justify-center gap-4 mb-8 sm:mb-10">
             <button
               ref={dropdownBtnRef}
               onClick={handleDropdownToggle}
@@ -264,7 +259,7 @@ export default function Hero() {
           {/* Stats */}
           <div
             ref={statsRef}
-            className="flex flex-wrap items-center justify-center gap-12"
+            className="grid grid-cols-3 items-start justify-center gap-4 sm:gap-10 md:gap-12 w-full max-w-md sm:max-w-none"
           >
             {stats.map((s, i) => (
               <div key={i} className="flex flex-col items-center">
@@ -273,14 +268,14 @@ export default function Hero() {
                   style={{
                     fontFamily: "var(--font-barlow), Barlow Condensed, sans-serif",
                     fontWeight: 800,
-                    fontSize: "clamp(2rem, 4vw, 3rem)",
+                    fontSize: "clamp(1.6rem, 4vw, 3rem)",
                     color: "#F70000",
                   }}
                 >
                   {s.value}
                 </span>
                 <span
-                  className="text-xs tracking-widest uppercase"
+                  className="text-[10px] sm:text-xs tracking-widest uppercase leading-tight"
                   style={{ color: "rgba(255,255,255,0.5)", fontFamily: "var(--font-lato), Lato, sans-serif" }}
                 >
                   {s.label}
@@ -288,23 +283,23 @@ export default function Hero() {
               </div>
             ))}
           </div>
-        </div>
 
-        {/* Scroll indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-          <span
-            className="text-xs tracking-widest uppercase"
-            style={{ color: "rgba(255,255,255,0.3)", fontFamily: "var(--font-lato), Lato, sans-serif" }}
-          >
-            scroll
-          </span>
-          <div
-            className="w-px h-10"
-            style={{
-              background:
-                "linear-gradient(180deg, rgba(255,255,255,0.5) 0%, transparent 100%)",
-            }}
-          />
+          {/* Scroll indicator */}
+          <div className="hidden sm:flex flex-col items-center gap-2 mt-8 pb-6">
+            <span
+              className="text-xs tracking-widest uppercase"
+              style={{ color: "rgba(255,255,255,0.3)", fontFamily: "var(--font-lato), Lato, sans-serif" }}
+            >
+              scroll
+            </span>
+            <div
+              className="w-px h-8"
+              style={{
+                background:
+                  "linear-gradient(180deg, rgba(255,255,255,0.5) 0%, transparent 100%)",
+              }}
+            />
+          </div>
         </div>
       </section>
     </>
