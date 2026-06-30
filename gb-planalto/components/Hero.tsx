@@ -189,10 +189,10 @@ export default function Hero() {
         />
 
         {/* Content */}
-        <div className="relative z-10 w-full max-w-6xl mx-auto px-6 flex flex-col items-center text-center pt-16 md:pt-20">
+        <div className="relative z-10 w-full max-w-6xl mx-auto px-6 flex flex-col items-center text-center pt-12 md:pt-20">
           {/* Eyebrow */}
           <div
-            className="flex items-center gap-3 mb-4 sm:mb-6"
+            className="hidden sm:flex items-center gap-3 mb-4 sm:mb-6"
             style={{ opacity: 0 }}
             ref={undefined}
           >
@@ -213,7 +213,7 @@ export default function Hero() {
             style={{
               fontFamily: "var(--font-barlow), Barlow Condensed, sans-serif",
               fontWeight: 800,
-              fontSize: "clamp(3.4rem, 8vw, 7rem)",
+              fontSize: "clamp(2.9rem, 8vw, 7rem)",
               letterSpacing: "-0.01em",
               maxWidth: "900px",
             }}
@@ -228,7 +228,7 @@ export default function Hero() {
             className="mb-6 sm:mb-8 leading-relaxed max-w-xl"
             style={{
               fontFamily: "var(--font-lato), Lato, sans-serif",
-              fontSize: "18px",
+              fontSize: "clamp(15px, 4vw, 18px)",
               color: "rgba(255,255,255,0.72)",
               fontWeight: 300,
             }}
