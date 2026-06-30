@@ -16,17 +16,12 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-6">
-              <div
-                className="w-10 h-10 rounded-sm flex items-center justify-center"
-                style={{ background: "#F70000" }}
-              >
-                <span
-                  className="text-white font-bold"
-                  style={{ fontFamily: "var(--font-barlow), Barlow Condensed, sans-serif", fontWeight: 900, fontSize: "14px" }}
-                >
-                  GB
-                </span>
-              </div>
+              <img
+                src="./logo-gb.png"
+                alt="Gracie Barra Planalto"
+                className="object-contain"
+                style={{ width: "52px", height: "52px" }}
+              />
               <div>
                 <p
                   className="text-white font-bold leading-none tracking-wide uppercase"

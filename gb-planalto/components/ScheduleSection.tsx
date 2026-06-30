@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
+import { WarningCircleIcon } from "@phosphor-icons/react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 type ScheduleItem = { time: string; label: string; type: string };
@@ -8,52 +9,64 @@ type DaySchedule = Record<string, ScheduleItem[]>;
 
 const schedule: DaySchedule = {
   "Seg": [
-    { time: "07:00", label: "Jiu jitsu", type: "adulto" },
-    { time: "07:30", label: "Adulto Fund.", type: "adulto" },
-    { time: "11:30", label: "Adulto Fund.", type: "adulto" },
-    { time: "17:00", label: "Infantil", type: "infantil" },
-    { time: "18:30", label: "Adulto Avançado", type: "adulto" },
-    { time: "19:30", label: "Adulto Fund.", type: "adulto" },
-    { time: "20:30", label: "Competição", type: "competicao" },
+    { time: "07:00", label: "GB1 / GB2", type: "adulto" },
+    { time: "08:00", label: "GB1 / GB2", type: "adulto" },
+    { time: "09:00", label: "Pequenos Campeões 2", type: "infantil" },
+    { time: "17:30", label: "GB1 / GB2", type: "adulto" },
+    { time: "18:30", label: "Pequenos Campeões 1", type: "infantil" },
+    { time: "19:30", label: "Pequenos Campeões 2", type: "infantil" },
+    { time: "20:30", label: "GB1 / GB2", type: "adulto" },
   ],
   "Ter": [
-    { time: "07:00", label: "Jiu jitsu", type: "adulto" },
-    { time: "11:30", label: "Feminino", type: "feminino" },
-    { time: "17:00", label: "Juvenil", type: "juvenil" },
-    { time: "18:30", label: "Adulto Avançado", type: "adulto" },
-    { time: "19:30", label: "Adulto Fund.", type: "adulto" },
-    { time: "20:30", label: "No-Gi", type: "adulto" },
+    { time: "06:00", label: "GB1 / GB2", type: "adulto" },
+    { time: "07:00", label: "GB1 / GB2", type: "adulto" },
+    { time: "09:00", label: "Pequenos Campeões 1", type: "infantil" },
+    { time: "10:00", label: "Mini Campeões", type: "infantil" },
+    { time: "12:30", label: "GB1 / GB2", type: "adulto" },
+    { time: "16:30", label: "Adolescentes", type: "juvenil" },
+    { time: "17:30", label: "GB1 / GB2", type: "adulto" },
+    { time: "18:30", label: "GB1 / GB2 (Iniciantes)", type: "adulto" },
+    { time: "18:30", label: "GBF", type: "feminino" },
+    { time: "19:30", label: "Pequenos Campeões 2", type: "infantil" },
+    { time: "20:30", label: "GB1 / GB2", type: "adulto" },
   ],
   "Qua": [
-    { time: "07:00", label: "Jiu jitsu", type: "adulto" },
-    { time: "07:30", label: "Adulto Fund.", type: "adulto" },
-    { time: "11:30", label: "Adulto Fund.", type: "adulto" },
-    { time: "17:00", label: "Infantil", type: "infantil" },
-    { time: "18:30", label: "Feminino", type: "feminino" },
-    { time: "19:30", label: "Adulto Avançado", type: "adulto" },
-    { time: "20:30", label: "Competição", type: "competicao" },
+    { time: "07:00", label: "GB1 / GB2", type: "adulto" },
+    { time: "08:00", label: "GB1 / GB2", type: "adulto" },
+    { time: "09:00", label: "Pequenos Campeões 2", type: "infantil" },
+    { time: "17:30", label: "GB1 / GB2", type: "adulto" },
+    { time: "18:30", label: "Pequenos Campeões 1", type: "infantil" },
+    { time: "19:30", label: "Pequenos Campeões 2", type: "infantil" },
+    { time: "20:30", label: "GB1 / GB2", type: "adulto" },
   ],
   "Qui": [
-    { time: "07:00", label: "Jiu jitsu", type: "adulto" },
-    { time: "11:30", label: "Adulto Fund.", type: "adulto" },
-    { time: "17:00", label: "Juvenil", type: "juvenil" },
-    { time: "18:30", label: "Adulto Avançado", type: "adulto" },
-    { time: "19:30", label: "Adulto Fund.", type: "adulto" },
+    { time: "06:00", label: "GB1 / GB2", type: "adulto" },
+    { time: "07:00", label: "GB1 / GB2", type: "adulto" },
+    { time: "09:00", label: "Pequenos Campeões 1", type: "infantil" },
+    { time: "10:00", label: "Mini Campeões", type: "infantil" },
+    { time: "12:30", label: "GB1 / GB2", type: "adulto" },
+    { time: "16:30", label: "Adolescentes", type: "juvenil" },
+    { time: "17:30", label: "GB1 / GB2", type: "adulto" },
+    { time: "18:30", label: "GB1 / GB2 (Iniciantes)", type: "adulto" },
+    { time: "18:30", label: "GBF", type: "feminino" },
+    { time: "19:30", label: "Pequenos Campeões 2", type: "infantil" },
+    { time: "20:30", label: "GB1 / GB2", type: "adulto" },
   ],
   "Sex": [
-    { time: "07:00", label: "Jiu jitsu - NOGI", type: "adulto" },
-    { time: "07:30", label: "Adulto Fund.", type: "adulto" },
-    { time: "11:30", label: "Feminino", type: "feminino" },
-    { time: "17:00", label: "Infantil", type: "infantil" },
-    { time: "18:30", label: "Adulto Avançado", type: "adulto" },
-    { time: "19:30", label: "Adulto Fund.", type: "adulto" },
-    { time: "20:30", label: "Competição", type: "competicao" },
+    { time: "07:00", label: "Nogi", type: "adulto" },
+    { time: "17:30", label: "Nogi", type: "adulto" },
+    { time: "18:30", label: "GBF Nogi", type: "feminino" },
+    { time: "18:30", label: "Competição Kids", type: "competicao" },
   ],
   "Sáb": [
-    { time: "10:00", label: "Competição", type: "competicao" },
-    { time: "11:00", label: "Jiu jitsu - Treino Livre", type: "adulto" },
+    { time: "09:00", label: "Competição Adulto", type: "competicao" },
+    { time: "10:00", label: "Treino Livre", type: "adulto" },
   ],
 };
+
+const allTimes = Array.from(
+  new Set(Object.values(schedule).flatMap((items) => items.map((i) => i.time)))
+).sort();
 
 const typeColors: Record<string, { bg: string; text: string; dot: string; border: string }> = {
   adulto:     { bg: "rgba(6,42,113,0.07)",   text: "#062A71", dot: "#062A71", border: "rgba(6,42,113,0.18)" },
@@ -220,21 +233,22 @@ export default function ScheduleSection() {
           className="hidden md:block overflow-x-auto rounded-[14px]"
           style={{ border: "1px solid rgba(10,14,26,0.08)", background: "#FFFFFF" }}
         >
-          <table className="w-full min-w-[640px]" style={{ borderCollapse: "collapse" }}>
+          <table className="w-full min-w-[680px]" style={{ borderCollapse: "collapse" }}>
             <thead>
               <tr style={{ background: "rgba(10,14,26,0.03)", borderBottom: "1px solid rgba(10,14,26,0.07)" }}>
-                {Object.keys(schedule).map((day) => (
+                <th style={{ width: "56px", padding: "10px 8px" }} />
+                {days.map((day) => (
                   <th
                     key={day}
                     className="text-center"
                     style={{
                       fontFamily: "var(--font-barlow), Barlow Condensed, sans-serif",
                       fontWeight: 700,
-                      fontSize: "14px",
+                      fontSize: "13px",
                       color: "rgba(10,14,26,0.5)",
                       letterSpacing: "0.1em",
                       textTransform: "uppercase",
-                      padding: "16px 12px",
+                      padding: "10px 10px",
                     }}
                   >
                     {day}
@@ -243,50 +257,60 @@ export default function ScheduleSection() {
               </tr>
             </thead>
             <tbody>
-              {Array.from({ length: 7 }).map((_, rowIdx) => (
+              {allTimes.map((time) => (
                 <tr
-                  key={rowIdx}
+                  key={time}
                   style={{ borderBottom: "1px solid rgba(10,14,26,0.05)" }}
                 >
-                  {Object.values(schedule).map((dayItems, colIdx) => {
-                    const item = dayItems[rowIdx];
-                    if (!item) return (
-                      <td key={colIdx} className="p-2 align-top" />
+                  <td
+                    className="text-center align-middle"
+                    style={{
+                      fontFamily: "var(--font-barlow), Barlow Condensed, sans-serif",
+                      fontWeight: 700,
+                      fontSize: "12px",
+                      color: "rgba(10,14,26,0.4)",
+                      background: "rgba(10,14,26,0.02)",
+                      whiteSpace: "nowrap",
+                    }}
+                  >
+                    {time}
+                  </td>
+                  {days.map((day, colIdx) => {
+                    const items = schedule[day].filter((i) => i.time === time);
+                    if (items.length === 0) return (
+                      <td key={colIdx} className="p-1.5 align-top" />
                     );
-                    const isVisible = activeFilter === "all" || item.type === activeFilter;
-                    const colors = typeColors[item.type] ?? typeColors.adulto;
                     return (
-                      <td key={colIdx} className="p-2 align-top schedule-cell">
-                        <div
-                          className="rounded-sm px-3 py-2 transition-all duration-300"
-                          style={{
-                            background: isVisible ? colors.bg : "transparent",
-                            border: isVisible
-                              ? `1px solid ${colors.border}`
-                              : "1px solid transparent",
-                            opacity: isVisible ? 1 : 0.2,
-                          }}
-                        >
-                          <p
-                            className="font-bold mb-0.5"
-                            style={{
-                              fontFamily: "var(--font-barlow), Barlow Condensed, sans-serif",
-                              fontSize: "13px",
-                              color: colors.dot,
-                            }}
-                          >
-                            {item.time}
-                          </p>
-                          <p
-                            style={{
-                              fontFamily: "var(--font-lato), Lato, sans-serif",
-                              fontSize: "11px",
-                              color: colors.text,
-                              lineHeight: 1.3,
-                            }}
-                          >
-                            {item.label}
-                          </p>
+                      <td key={colIdx} className="p-1.5 align-top schedule-cell">
+                        <div className="flex flex-col gap-1">
+                          {items.map((item, i) => {
+                            const isVisible = activeFilter === "all" || item.type === activeFilter;
+                            const colors = typeColors[item.type] ?? typeColors.adulto;
+                            return (
+                              <div
+                                key={i}
+                                className="rounded-sm px-2.5 py-1.5 transition-all duration-300"
+                                style={{
+                                  background: isVisible ? colors.bg : "transparent",
+                                  border: isVisible
+                                    ? `1px solid ${colors.border}`
+                                    : "1px solid transparent",
+                                  opacity: isVisible ? 1 : 0.2,
+                                }}
+                              >
+                                <p
+                                  style={{
+                                    fontFamily: "var(--font-lato), Lato, sans-serif",
+                                    fontSize: "11px",
+                                    color: colors.text,
+                                    lineHeight: 1.25,
+                                  }}
+                                >
+                                  {item.label}
+                                </p>
+                              </div>
+                            );
+                          })}
                         </div>
                       </td>
                     );
@@ -313,6 +337,20 @@ export default function ScheduleSection() {
               </span>
             </div>
           ))}
+        </div>
+
+        {/* Atenção */}
+        <div
+          className="flex items-start gap-3 mt-8 px-5 py-4 rounded-xl fade-up"
+          style={{ background: "rgba(180,110,0,0.07)", border: "1px solid rgba(180,110,0,0.2)" }}
+        >
+          <WarningCircleIcon size={20} weight="fill" style={{ color: "#B8860B", flexShrink: 0, marginTop: "1px" }} />
+          <p
+            className="text-sm leading-relaxed"
+            style={{ fontFamily: "var(--font-lato), Lato, sans-serif", color: "#8a5500" }}
+          >
+            <strong>Atenção:</strong> os horários podem sofrer alterações. Consulte sempre a nossa equipe para mais informações.
+          </p>
         </div>
       </div>
     </section>

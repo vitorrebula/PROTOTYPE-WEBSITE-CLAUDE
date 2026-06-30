@@ -59,21 +59,12 @@ export default function Nav() {
             transition: "opacity 0.5s cubic-bezier(0.16,1,0.3,1)",
           }}
         >
-          <div
-            className="rounded flex items-center justify-center transition-all duration-500 group-hover:scale-105"
-            style={{
-              background: "#F70000",
-              width: "48px",
-              height: "48px",
-              boxShadow: "0 4px 24px rgba(247,0,0,0.28)",
-            }}
-          >
-            <img
-              src="./logo-gb.svg"
-              className="object-contain"
-              style={{ width: "34px", height: "34px" }}
-            />
-          </div>
+          <img
+            src="./logo-gb.png"
+            alt="Gracie Barra Planalto"
+            className="object-contain transition-all duration-500 group-hover:scale-105"
+            style={{ width: "60px", height: "60px" }}
+          />
         </a>
 
         {/* Desktop links */}

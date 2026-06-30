@@ -11,6 +11,7 @@ const instructors = [
     years: "15 anos de experiência",
     bio: "Graduado à faixa preta pelas mãos de Vinicius Draculino, seguindo os passos de Sérgio 'Seginho' Benini e Cláudio 'Caloquinha', Jones construiu a GB Planalto com a missão de espalhar o jiu-jitsu de alto nível. Campeão brasileiro, mundial, mineiro, sulamericano e sulbrasileiro — referência técnica da região.",
     img: "./jonin.jpeg",
+    imgPosition: "top",
     specialties: ["Fundamentos", "Competição", "Adulto"],
   },
   {
@@ -157,6 +158,7 @@ export default function InstructorsSection() {
                       className="w-full h-full object-cover"
                       style={{
                         filter: "grayscale(0%) brightness(1) contrast(1.05)",
+                        objectPosition: inst.imgPosition ?? "center",
                         pointerEvents: "none",
                         draggable: false,
                       } as React.CSSProperties}
@@ -285,6 +287,7 @@ export default function InstructorsSection() {
                   src={inst.img}
                   alt={inst.name}
                   className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
+                  style={{ objectPosition: inst.imgPosition ?? "center" }}
                 />
                 <div
                   className="absolute inset-0"

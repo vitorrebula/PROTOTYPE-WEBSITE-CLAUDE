@@ -169,10 +169,10 @@ export default function Hero() {
           style={{ background: "linear-gradient(0deg, #07101F 0%, transparent 100%)" }}
         />
 
-        {/* Watermark logo */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
+        {/* Watermark logo — desktop only */}
+        <div className="absolute inset-0 hidden md:flex items-center justify-center pointer-events-none select-none">
           <img
-            src="./logo-gb.svg"
+            src="./logo-gb.png"
             alt=""
             style={{
               width: "min(55vw, 600px)",
@@ -204,6 +204,19 @@ export default function Hero() {
               Belo Horizonte — Planalto
             </span>
             <div className="h-px w-10" style={{ background: "#F70000" }} />
+          </div>
+
+          {/* Logo — mobile only, above headline */}
+          <div className="flex md:hidden items-center justify-center mb-5 select-none">
+            <img
+              src="./logo-gb.png"
+              alt="Gracie Barra Planalto"
+              style={{
+                width: "min(48vw, 220px)",
+                height: "auto",
+                opacity: 1,
+              }}
+            />
           </div>
 
           {/* Headline */}
