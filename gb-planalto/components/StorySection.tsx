@@ -127,7 +127,7 @@ export default function StorySection() {
               }}
             >
               <img
-                src="./turmadada.jpeg"
+                src="./vinicius-falando.jpeg"
                 alt="Turma da Gracie Barra Planalto"
                 style={{
                   position: "absolute", inset: 0, width: "100%", height: "100%",

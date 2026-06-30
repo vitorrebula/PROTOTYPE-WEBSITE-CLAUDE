@@ -6,12 +6,13 @@ import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const IMAGES = [
-  { src: "./turmadada.jpeg", alt: "Tatame principal" },
-  { src: "./turmadada.jpeg", alt: "Área de treino" },
-  { src: "./turmadada.jpeg", alt: "Vestiário" },
-  { src: "./turmadada.jpeg", alt: "Recepção" },
-  { src: "./turmadada.jpeg", alt: "Sala de musculação" },
-  { src: "./turmadada.jpeg", alt: "Área de alongamento" },
+  { src: "./luta-1.jpeg",           alt: "Treino na academia" },
+  { src: "./luta-2.jpeg",           alt: "Treino técnico" },
+  { src: "./luta-3.jpeg",           alt: "Sparring" },
+  { src: "./vinny-bjj.jpeg",        alt: "Professor Vinicius" },
+  { src: "./vinicius-falando.jpeg",  alt: "Evento na academia" },
+  { src: "./pai-e-filho-bjj-2.jpeg", alt: "Família no tatame" },
+  { src: "./turmadada.jpeg",         alt: "Turma da academia" },
 ];
 
 const AMENITIES = [

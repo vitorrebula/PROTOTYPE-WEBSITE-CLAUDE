@@ -13,7 +13,7 @@ const classes = [
     description:
       "Turmas lúdicas e seguras para os pequenos explorarem o movimento, a coordenação e a disciplina de forma divertida. A melhor base que uma criança pode ter.",
     benefits: ["Coordenação motora", "Socialização", "Autoconfiança", "Disciplina lúdica"],
-    img: "https://picsum.photos/seed/mini-bjj/600/800",
+    img: "./pai-e-filha.jpeg",
     color: "#062A71",
   },
   {
@@ -24,7 +24,7 @@ const classes = [
     description:
       "Turmas estruturadas para desenvolver foco, respeito e autoconfiança. Seu filho vai adorar o tatame — e você vai ver a diferença em casa e na escola.",
     benefits: ["Foco e concentração", "Respeito e hierarquia", "Autoconfiança", "Disciplina"],
-    img: "https://picsum.photos/seed/kids-bjj/600/800",
+    img: "./pai-e-filho-bjj-3.jpeg",
     color: "#1A3D8F",
   },
   {
@@ -35,7 +35,7 @@ const classes = [
     description:
       "Jiu-Jitsu formativo e competitivo para crianças em fase escolar. Desenvolvemos técnica, responsabilidade e o espírito de equipe que vai além do tatame.",
     benefits: ["Técnica avançada", "Espírito de equipe", "Preparação competitiva", "Responsabilidade"],
-    img: "https://picsum.photos/seed/future-bjj/600/800",
+    img: "./mae-e-filho-bjj.jpeg",
     color: "#0D3580",
   },
   {
@@ -46,7 +46,7 @@ const classes = [
     description:
       "Um espaço seguro para adolescentes desenvolverem caráter, resiliência e pertencimento. O Jiu-Jitsu é o antídoto certo para as pressões dessa fase.",
     benefits: ["Formação de caráter", "Resiliência", "Pertencimento", "Disciplina competitiva"],
-    img: "https://picsum.photos/seed/teen-bjj/600/800",
+    img: "./pai-e-filho-bjj.jpeg",
     color: "#1A3D8F",
   },
   {
@@ -57,7 +57,7 @@ const classes = [
     description:
       "Do iniciante ao avançado, com currículo estruturado pela Gracie Barra International. Alta qualidade técnica, evolução real e uma comunidade de alto nível.",
     benefits: ["Alta qualidade técnica", "Currículo GB estruturado", "Todas as faixas", "Comunidade"],
-    img: "https://picsum.photos/seed/adult-bjj/600/800",
+    img: "./luta-1.jpeg",
     color: "#F70000",
   },
   {
@@ -68,7 +68,7 @@ const classes = [
     description:
       "Gracie Barra Feminino: horários exclusivos com a professora Dadá e instrutoras qualificadas. Um ambiente pensado para que mulheres se sintam completamente seguras e acolhidas no tatame.",
     benefits: ["Horários exclusivos", "Defesa pessoal real", "Instrutoras qualificadas", "Ambiente acolhedor"],
-    img: "https://picsum.photos/seed/women-bjj/600/800",
+    img: "./dada-1.jpeg",
     color: "#8B0000",
   },
   {
@@ -79,7 +79,7 @@ const classes = [
     description:
       "Time de competição com treinamento especializado, periodização e mentalidade de alto rendimento. Para quem quer o pódio, o acesso é por convite.",
     benefits: ["Periodização específica", "Mentoria individual", "Campeonatos nacionais", "Alto rendimento"],
-    img: "https://picsum.photos/seed/competition-bjj/600/800",
+    img: "./luta-3.jpeg",
     color: "#1a1a1a",
   },
 ];

@@ -24,7 +24,7 @@ const steps = [
     icon: UsersThreeIcon,
     title: "Faça a aula experimental",
     description:
-      "Treine com a gente uma vez, de graça, na turma ideal para o seu perfil. Você vai se surpreender.",
+      "Treine com a gente na turma ideal para o seu perfil. Você vai se surpreender.",
   },
   {
     number: "04",
@@ -157,7 +157,7 @@ export default function HowToStartSection() {
         {/* CTA */}
         <div className="flex justify-center mt-20 fade-up">
           <a href="#aula" className="btn-primary text-base px-12">
-            Agendar minha aula grátis
+            Agendar minha aula experimental
           </a>
         </div>
       </div>

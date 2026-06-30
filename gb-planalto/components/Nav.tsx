@@ -1,10 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { ListIcon, XIcon } from "@phosphor-icons/react";
+import { useState, useEffect, useRef } from "react";
+import { ListIcon, XIcon, CaretDownIcon, ArrowRightIcon, WhatsappLogoIcon } from "@phosphor-icons/react";
 
 const links = [
-  { label: "A Academia", href: "#historia" },
+  { label: "Academia", href: "#historia" },
   { label: "Modalidades", href: "#modalidades" },
   { label: "Professores", href: "#professores" },
   { label: "Horários", href: "#horarios" },
@@ -13,11 +13,23 @@ const links = [
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [ctaDropOpen, setCtaDropOpen] = useState(false);
+  const ctaDropRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (ctaDropRef.current && !ctaDropRef.current.contains(e.target as Node)) {
+        setCtaDropOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   return (
@@ -74,31 +86,92 @@ export default function Nav() {
           ))}
         </ul>
 
-        {/* CTA */}
-        <a
-          href="https://venda.nextfit.com.br/bb3a987f-a6a8-4709-b7e1-8a30aa342ca5/contratos"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 text-sm font-bold tracking-wider uppercase transition-all duration-300 hover:-translate-y-0.5"
-          style={{
-            fontFamily: "var(--font-barlow), Barlow Condensed, sans-serif",
-            background: "#F70000",
-            color: "#fff",
-            borderRadius: "4px",
-            letterSpacing: "0.06em",
-            boxShadow: "0 0 0 0 rgba(247,0,0,0.4)",
-          }}
-          onMouseEnter={(e) => {
-            (e.currentTarget as HTMLElement).style.boxShadow =
-              "0 10px 30px rgba(247,0,0,0.35)";
-          }}
-          onMouseLeave={(e) => {
-            (e.currentTarget as HTMLElement).style.boxShadow =
-              "0 0 0 0 rgba(247,0,0,0.4)";
-          }}
-        >
-          Matricule-se
-        </a>
+        {/* CTA dropdown */}
+        <div ref={ctaDropRef} className="hidden md:block relative">
+          <button
+            onClick={() => setCtaDropOpen((v) => !v)}
+            className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-bold tracking-wider uppercase transition-all duration-300 hover:-translate-y-0.5"
+            style={{
+              fontFamily: "var(--font-barlow), Barlow Condensed, sans-serif",
+              background: "#F70000",
+              color: "#fff",
+              borderRadius: "4px",
+              letterSpacing: "0.06em",
+              boxShadow: ctaDropOpen ? "0 10px 30px rgba(247,0,0,0.35)" : "0 0 0 0 rgba(247,0,0,0.4)",
+              border: "none",
+              cursor: "pointer",
+            }}
+          >
+            Matricule-se
+            <CaretDownIcon
+              size={14}
+              style={{
+                transition: "transform 0.25s cubic-bezier(0.16,1,0.3,1)",
+                transform: ctaDropOpen ? "rotate(180deg)" : "rotate(0deg)",
+              }}
+            />
+          </button>
+
+          {/* Dropdown panel */}
+          {ctaDropOpen && (
+            <div
+              style={{
+                position: "absolute",
+                top: "calc(100% + 8px)",
+                right: 0,
+                background: "rgba(7,16,31,0.97)",
+                border: "1px solid rgba(255,255,255,0.12)",
+                borderRadius: "10px",
+                backdropFilter: "blur(24px)",
+                WebkitBackdropFilter: "blur(24px)",
+                zIndex: 200,
+                minWidth: "220px",
+                boxShadow: "0 16px 48px rgba(0,0,0,0.5)",
+                overflow: "hidden",
+              }}
+            >
+              <a
+                href="https://venda.nextfit.com.br/bb3a987f-a6a8-4709-b7e1-8a30aa342ca5/contratos"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setCtaDropOpen(false)}
+                className="flex items-center gap-3 px-5 py-4 transition-colors duration-200"
+                style={{
+                  color: "#fff",
+                  fontFamily: "var(--font-lato), Lato, sans-serif",
+                  fontSize: "14px",
+                  fontWeight: 500,
+                  textDecoration: "none",
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(247,0,0,0.12)")}
+                onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
+              >
+                <ArrowRightIcon size={15} style={{ color: "#F70000", flexShrink: 0 }} />
+                Matricule-se online
+              </a>
+              <div style={{ height: "1px", background: "rgba(255,255,255,0.07)", margin: "0 16px" }} />
+              <a
+                href="https://wa.me/5531999999999"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setCtaDropOpen(false)}
+                className="flex items-center gap-3 px-5 py-4 transition-colors duration-200"
+                style={{
+                  color: "#fff",
+                  fontFamily: "var(--font-lato), Lato, sans-serif",
+                  fontSize: "14px",
+                  fontWeight: 500,
+                  textDecoration: "none",
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(37,211,102,0.08)")}
+                onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
+              >
+                <WhatsappLogoIcon size={15} style={{ color: "#25D366", flexShrink: 0 }} />
+                Chamar no WhatsApp
+              </a>
+            </div>
+          )}
+        </div>
 
         {/* Mobile burger */}
         <button
@@ -129,20 +202,41 @@ export default function Nav() {
               {l.label}
             </a>
           ))}
-          <a
-            href="https://venda.nextfit.com.br/bb3a987f-a6a8-4709-b7e1-8a30aa342ca5/contratos"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => setOpen(false)}
-            className="mt-4 px-8 py-4 text-xl font-bold tracking-wider uppercase text-white"
-            style={{
-              fontFamily: "var(--font-barlow), Barlow Condensed, sans-serif",
-              background: "#F70000",
-              borderRadius: "4px",
-            }}
-          >
-            Matricule-se
-          </a>
+          <div className="flex flex-col items-center gap-3 mt-4">
+            <a
+              href="https://venda.nextfit.com.br/bb3a987f-a6a8-4709-b7e1-8a30aa342ca5/contratos"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setOpen(false)}
+              className="flex items-center gap-2 px-8 py-4 text-xl font-bold tracking-wider uppercase text-white"
+              style={{
+                fontFamily: "var(--font-barlow), Barlow Condensed, sans-serif",
+                background: "#F70000",
+                borderRadius: "4px",
+                textDecoration: "none",
+              }}
+            >
+              <ArrowRightIcon size={18} />
+              Matricule-se online
+            </a>
+            <a
+              href="https://wa.me/5531999999999"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setOpen(false)}
+              className="flex items-center gap-2 px-8 py-4 text-xl font-bold tracking-wider uppercase"
+              style={{
+                fontFamily: "var(--font-barlow), Barlow Condensed, sans-serif",
+                color: "#fff",
+                border: "1px solid rgba(255,255,255,0.15)",
+                borderRadius: "4px",
+                textDecoration: "none",
+              }}
+            >
+              <WhatsappLogoIcon size={18} style={{ color: "#25D366" }} />
+              WhatsApp
+            </a>
+          </div>
         </div>
       </div>
     </header>

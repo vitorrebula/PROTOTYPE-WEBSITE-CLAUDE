@@ -6,7 +6,7 @@ import TestimonialsSection from "@/components/ui/testimonial-v2";
 import ClassesSection from "@/components/ClassesSection";
 import HowToStartSection from "@/components/HowToStartSection";
 import InstructorsSection from "@/components/InstructorsSection";
-// import AchievementsSection from "@/components/AchievementsSection";
+import AchievementsSection from "@/components/AchievementsSection";
 import ScheduleSection from "@/components/ScheduleSection";
 import ZoomParallaxSection from "@/components/ZoomParallaxSection";
 import FacilitiesSection from "@/components/FacilitiesSection";
@@ -25,6 +25,7 @@ export default function Home() {
       <TestimonialsSection />
       <HowToStartSection />
       <InstructorsSection />
+      <AchievementsSection />
       <ScheduleSection />
       <ZoomParallaxSection />
       <FacilitiesSection />
