@@ -53,7 +53,7 @@ export default function Footer() {
               {[
                 { icon: InstagramLogoIcon, href: "#" },
                 { icon: FacebookLogoIcon, href: "#" },
-                { icon: WhatsappLogoIcon, href: "https://wa.me/5531999999999" },
+                { icon: WhatsappLogoIcon, href: "https://wa.me/553125310071" },
               ].map(({ icon: Icon, href }, i) => (
                 <a
                   key={i}
@@ -120,7 +120,7 @@ export default function Footer() {
             <ul className="space-y-4">
               {[
                 { icon: MapPinIcon, text: "Rua Professor Massanielo Santos, 490\nPlanalto, Belo Horizonte - MG" },
-                { icon: PhoneIcon, text: "(31) 99999-9999" },
+                { icon: PhoneIcon, text: "(31) 2531-0071" },
                 { icon: EnvelopeIcon, text: "contato@gbplanalto.com.br" },
               ].map(({ icon: Icon, text }, i) => (
                 <li key={i} className="flex items-start gap-3">

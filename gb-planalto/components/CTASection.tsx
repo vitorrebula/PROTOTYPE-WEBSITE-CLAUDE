@@ -80,7 +80,7 @@ export default function CTASection() {
 
           <div className="flex flex-wrap items-center justify-center gap-4 mb-16">
             <a
-              href="https://wa.me/5531999999999?text=Olá!%20Gostaria%20de%20agendar%20uma%20aula%20experimental%20na%20Gracie%20Barra%20Planalto."
+              href="https://wa.me/553125310071?text=Olá!%20Gostaria%20de%20agendar%20uma%20aula%20experimental%20na%20Gracie%20Barra%20Planalto."
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary text-base px-10 py-4"
@@ -90,7 +90,7 @@ export default function CTASection() {
               <ArrowRightIcon size={20} />
             </a>
             <a
-              href="https://wa.me/5531999999999"
+              href="https://wa.me/553125310071"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-secondary text-base px-8 py-4"

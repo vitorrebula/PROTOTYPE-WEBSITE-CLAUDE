@@ -147,7 +147,7 @@ export default function Nav() {
               </a>
               <div style={{ height: "1px", background: "rgba(255,255,255,0.07)", margin: "0 16px" }} />
               <a
-                href="https://wa.me/5531999999999"
+                href="https://wa.me/553125310071"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setCtaDropOpen(false)}
@@ -216,7 +216,7 @@ export default function Nav() {
               Matricule-se online
             </a>
             <a
-              href="https://wa.me/5531999999999"
+              href="https://wa.me/553125310071"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setOpen(false)}

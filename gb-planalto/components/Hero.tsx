@@ -117,7 +117,7 @@ export default function Hero() {
           </a>
           <div style={{ height: "1px", background: "rgba(255,255,255,0.07)", margin: "0 16px" }} />
           <a
-            href="https://wa.me/5531999999999"
+            href="https://wa.me/553125310071"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setDropdownOpen(false)}
