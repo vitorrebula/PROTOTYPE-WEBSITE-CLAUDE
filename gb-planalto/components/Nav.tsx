@@ -49,24 +49,29 @@ export default function Nav() {
           border: scrolled ? "1px solid rgba(255,255,255,0.08)" : "none",
         }}
       >
-        {/* Logo */}
-        <a href="#" className="group flex-shrink-0">
+        {/* Logo — hidden at top (hero shows its own), appears on scroll */}
+        <a
+          href="#"
+          className="group flex-shrink-0"
+          style={{
+            opacity: scrolled ? 1 : 0,
+            pointerEvents: scrolled ? "auto" : "none",
+            transition: "opacity 0.5s cubic-bezier(0.16,1,0.3,1)",
+          }}
+        >
           <div
-            className="rounded flex items-center justify-center transition-all duration-300 group-hover:scale-105"
+            className="rounded flex items-center justify-center transition-all duration-500 group-hover:scale-105"
             style={{
               background: "#F70000",
-              width: scrolled ? "56px" : "96px",
-              height: scrolled ? "56px" : "96px",
+              width: "48px",
+              height: "48px",
               boxShadow: "0 4px 24px rgba(247,0,0,0.28)",
             }}
           >
             <img
               src="./logo-gb.svg"
-              className="object-contain transition-all duration-300"
-              style={{
-                width: scrolled ? "40px" : "70px",
-                height: scrolled ? "40px" : "70px",
-              }}
+              className="object-contain"
+              style={{ width: "34px", height: "34px" }}
             />
           </div>
         </a>

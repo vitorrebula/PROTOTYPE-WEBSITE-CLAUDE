@@ -149,7 +149,7 @@ export default function Hero() {
             alt=""
             className="w-full h-full object-cover"
             style={{
-              filter: "grayscale(30%) contrast(1.1) brightness(0.35)",
+              filter: "grayscale(15%) contrast(1.05) brightness(0.55)",
               transform: "scale(1.1)",
             }}
           />
@@ -160,7 +160,7 @@ export default function Hero() {
           className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse 80% 60% at 50% 40%, rgba(6,42,113,0.45) 0%, transparent 70%), linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%)",
+              "radial-gradient(ellipse 80% 60% at 50% 40%, rgba(6,42,113,0.35) 0%, transparent 70%), linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.55) 100%)",
           }}
         />
         <div
