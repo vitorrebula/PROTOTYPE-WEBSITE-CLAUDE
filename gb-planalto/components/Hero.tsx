@@ -169,19 +169,6 @@ export default function Hero() {
           style={{ background: "linear-gradient(0deg, #07101F 0%, transparent 100%)" }}
         />
 
-        {/* Watermark logo — desktop only */}
-        <div className="absolute inset-0 hidden md:flex items-center justify-center pointer-events-none select-none">
-          <img
-            src="./logo-gb.png"
-            alt=""
-            style={{
-              width: "min(55vw, 600px)",
-              height: "auto",
-              opacity: 0.07,
-            }}
-          />
-        </div>
-
         {/* Red accent top */}
         <div
           className="absolute top-0 left-0 right-0 h-px"
@@ -189,116 +176,134 @@ export default function Hero() {
         />
 
         {/* Content */}
-        <div className="relative z-10 w-full max-w-6xl mx-auto px-6 flex flex-col items-center text-center pt-12 md:pt-20">
-          {/* Eyebrow */}
-          <div
-            className="hidden sm:flex items-center gap-3 mb-4 sm:mb-6"
-            style={{ opacity: 0 }}
-            ref={undefined}
-          >
-            <div className="h-px w-10" style={{ background: "#F70000" }} />
-            <span
-              className="text-xs tracking-[0.25em] uppercase"
-              style={{ color: "rgba(255,255,255,0.6)", fontFamily: "var(--font-lato), Lato, sans-serif" }}
-            >
-              Belo Horizonte — Planalto
-            </span>
-            <div className="h-px w-10" style={{ background: "#F70000" }} />
-          </div>
-
-          {/* Logo — mobile only, above headline */}
-          <div className="flex md:hidden items-center justify-center mb-5 select-none">
-            <img
-              src="./logo-gb.png"
-              alt="Gracie Barra Planalto"
-              style={{
-                width: "min(48vw, 220px)",
-                height: "auto",
-                opacity: 1,
-              }}
-            />
-          </div>
-
-          {/* Headline */}
-          <h1
-            ref={headlineRef}
-            className="w-full font-display text-white leading-none mb-4 sm:mb-6"
-            style={{
-              fontFamily: "var(--font-barlow), Barlow Condensed, sans-serif",
-              fontWeight: 800,
-              fontSize: "clamp(2.9rem, 8vw, 7rem)",
-              letterSpacing: "-0.01em",
-              maxWidth: "900px",
-            }}
-          >
-            DISCIPLINA FORMA{" "}
-            <span style={{ color: "#F70000" }}>CAMPEÕES</span>
-          </h1>
-
-          {/* Sub */}
-          <p
-            ref={subRef}
-            className="mb-6 sm:mb-8 leading-relaxed max-w-xl"
-            style={{
-              fontFamily: "var(--font-lato), Lato, sans-serif",
-              fontSize: "clamp(15px, 4vw, 18px)",
-              color: "rgba(255,255,255,0.72)",
-              fontWeight: 300,
-            }}
-          >
-            Jiu-Jitsu de alto nível para todas as idades. Da sua primeira aula
-            até o pódio — venha fazer parte da família Gracie Barra Planalto.
-          </p>
-
-          {/* CTA — single dropdown button */}
-          <div ref={ctaRef} className="flex flex-wrap items-center justify-center gap-4 mb-8 sm:mb-10">
-            <button
-              ref={dropdownBtnRef}
-              onClick={handleDropdownToggle}
-              className="btn-primary group"
-              style={{ fontSize: "15px", paddingLeft: "36px", paddingRight: "28px" }}
-            >
-              Quero Começar
-              <CaretDownIcon
-                size={16}
+        <div className="relative z-10 w-full max-w-6xl mx-auto px-6 pt-12 md:pt-[100px]">
+          <div className="flex flex-col items-center text-center md:grid md:grid-cols-[1fr_1.2fr] md:items-center md:text-left md:gap-16">
+            {/* Logo — desktop only, large, left column */}
+            <div className="hidden md:block select-none">
+              <img
+                src="./logo-gb.png"
+                alt="Gracie Barra Planalto"
                 style={{
-                  transition: "transform 0.25s cubic-bezier(0.16,1,0.3,1)",
-                  transform: dropdownOpen ? "rotate(180deg)" : "rotate(0deg)",
+                  width: "100%",
+                  maxWidth: "440px",
+                  height: "auto",
                 }}
               />
-            </button>
-          </div>
+            </div>
 
-          {/* Stats */}
-          <div
-            ref={statsRef}
-            className="grid grid-cols-3 items-start justify-center gap-4 sm:gap-10 md:gap-12 w-full max-w-md sm:max-w-none"
-          >
-            {stats.map((s, i) => (
-              <div key={i} className="flex flex-col items-center">
+            {/* Right column — text content */}
+            <div className="flex flex-col items-center text-center md:items-start md:text-left">
+              {/* Eyebrow */}
+              <div
+                className="hidden sm:flex items-center gap-3 mb-4 sm:mb-6"
+                style={{ opacity: 0 }}
+                ref={undefined}
+              >
+                <div className="h-px w-10" style={{ background: "#F70000" }} />
                 <span
-                  className="font-display leading-none mb-1"
-                  style={{
-                    fontFamily: "var(--font-barlow), Barlow Condensed, sans-serif",
-                    fontWeight: 800,
-                    fontSize: "clamp(1.6rem, 4vw, 3rem)",
-                    color: "#F70000",
-                  }}
+                  className="text-xs tracking-[0.25em] uppercase"
+                  style={{ color: "rgba(255,255,255,0.6)", fontFamily: "var(--font-lato), Lato, sans-serif" }}
                 >
-                  {s.value}
+                  Belo Horizonte — Planalto
                 </span>
-                <span
-                  className="text-[10px] sm:text-xs tracking-widest uppercase leading-tight"
-                  style={{ color: "rgba(255,255,255,0.5)", fontFamily: "var(--font-lato), Lato, sans-serif" }}
-                >
-                  {s.label}
-                </span>
+                <div className="h-px w-10" style={{ background: "#F70000" }} />
               </div>
-            ))}
+
+              {/* Logo — mobile only, above headline */}
+              <div className="flex md:hidden items-center justify-center mb-5 select-none">
+                <img
+                  src="./logo-gb.png"
+                  alt="Gracie Barra Planalto"
+                  style={{
+                    width: "min(48vw, 220px)",
+                    height: "auto",
+                    opacity: 1,
+                  }}
+                />
+              </div>
+
+              {/* Headline */}
+              <h1
+                ref={headlineRef}
+                className="w-full font-display text-white leading-none mb-4 sm:mb-6"
+                style={{
+                  fontFamily: "var(--font-barlow), Barlow Condensed, sans-serif",
+                  fontWeight: 800,
+                  fontSize: "clamp(2.9rem, 7vw, 5.5rem)",
+                  letterSpacing: "-0.01em",
+                  maxWidth: "900px",
+                }}
+              >
+                DISCIPLINA FORMA{" "}
+                <span style={{ color: "#F70000" }}>CAMPEÕES</span>
+              </h1>
+
+              {/* Sub */}
+              <p
+                ref={subRef}
+                className="mb-6 sm:mb-8 leading-relaxed max-w-xl"
+                style={{
+                  fontFamily: "var(--font-lato), Lato, sans-serif",
+                  fontSize: "clamp(15px, 4vw, 18px)",
+                  color: "rgba(255,255,255,0.72)",
+                  fontWeight: 300,
+                }}
+              >
+                Jiu-Jitsu de alto nível para todas as idades. Da sua primeira aula
+                até o pódio — venha fazer parte da família Gracie Barra Planalto.
+              </p>
+
+              {/* CTA — single dropdown button */}
+              <div ref={ctaRef} className="flex flex-wrap items-center justify-center md:justify-start gap-4 mb-8 sm:mb-10">
+                <button
+                  ref={dropdownBtnRef}
+                  onClick={handleDropdownToggle}
+                  className="btn-primary group"
+                  style={{ fontSize: "15px", paddingLeft: "36px", paddingRight: "28px" }}
+                >
+                  Quero Começar
+                  <CaretDownIcon
+                    size={16}
+                    style={{
+                      transition: "transform 0.25s cubic-bezier(0.16,1,0.3,1)",
+                      transform: dropdownOpen ? "rotate(180deg)" : "rotate(0deg)",
+                    }}
+                  />
+                </button>
+              </div>
+
+              {/* Stats */}
+              <div
+                ref={statsRef}
+                className="grid grid-cols-3 items-start justify-center md:justify-start gap-4 sm:gap-10 md:gap-12 w-full max-w-md sm:max-w-none"
+              >
+                {stats.map((s, i) => (
+                  <div key={i} className="flex flex-col items-center md:items-start">
+                    <span
+                      className="font-display leading-none mb-1"
+                      style={{
+                        fontFamily: "var(--font-barlow), Barlow Condensed, sans-serif",
+                        fontWeight: 800,
+                        fontSize: "clamp(1.6rem, 4vw, 3rem)",
+                        color: "#F70000",
+                      }}
+                    >
+                      {s.value}
+                    </span>
+                    <span
+                      className="text-[10px] sm:text-xs tracking-widest uppercase leading-tight"
+                      style={{ color: "rgba(255,255,255,0.5)", fontFamily: "var(--font-lato), Lato, sans-serif" }}
+                    >
+                      {s.label}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
 
           {/* Scroll indicator */}
-          <div className="hidden sm:flex flex-col items-center gap-2 mt-8 pb-6">
+          <div className="hidden sm:flex flex-col items-center gap-2 mt-8 pb-6 mx-auto w-fit">
             <span
               className="text-xs tracking-widest uppercase"
               style={{ color: "rgba(255,255,255,0.3)", fontFamily: "var(--font-lato), Lato, sans-serif" }}
