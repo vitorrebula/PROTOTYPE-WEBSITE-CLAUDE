@@ -119,7 +119,7 @@ export default function Footer() {
             </p>
             <ul className="space-y-4">
               {[
-                { icon: MapPinIcon, text: "Rua das Palmeiras, 500\nBairro Planalto, BH - MG" },
+                { icon: MapPinIcon, text: "Rua Professor Massanielo Santos, 490\nPlanalto, Belo Horizonte - MG" },
                 { icon: PhoneIcon, text: "(31) 99999-9999" },
                 { icon: EnvelopeIcon, text: "contato@gbplanalto.com.br" },
               ].map(({ icon: Icon, text }, i) => (
