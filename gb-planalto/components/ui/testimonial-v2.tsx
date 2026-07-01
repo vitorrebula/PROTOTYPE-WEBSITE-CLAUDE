@@ -2,10 +2,10 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { UserCircleIcon } from "@phosphor-icons/react";
 
 interface Testimonial {
   text: string;
-  image: string;
   name: string;
   role: string;
   stars: number;
@@ -13,66 +13,57 @@ interface Testimonial {
 
 const testimonials: Testimonial[] = [
   {
-    text: "Comecei do zero, sem nenhuma experiência em artes marciais. O ambiente da Gracie Barra Planalto me acolheu desde o primeiro dia. Hoje sou faixa azul e não consigo imaginar minha semana sem treinar.",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=150&h=150",
-    name: "Rafael Mendes",
-    role: "Aluno adulto — 3 anos",
+    text: "Estrutura espetacular! Mestre Vinícius, Dadá e Dudu, professores extremamente comprometidos e dedicados!",
+    name: "Lucas Winter",
+    role: "Avaliação no Google — há 1 semana",
     stars: 5,
   },
   {
-    text: "Sempre quis aprender defesa pessoal mas tinha medo de não me encaixar. A turma feminina é incrível — professoras qualificadas, ambiente super seguro e respeitoso. Me sinto mais confiante em tudo.",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=150&h=150",
-    name: "Camila Rocha",
-    role: "Aluna feminino — 2 anos",
+    text: "Excelente equipe de instrutores! O jiu-jitsu aqui promove disciplina, cuidado e autocontrole, experiência completa. Estou muito satisfeita. 10 estrelas!",
+    name: "Aldine Santos",
+    role: "Local Guide — há 8 meses",
     stars: 5,
   },
   {
-    text: "Coloquei meu filho de 8 anos na turma infantil sem saber o que esperar. A transformação foi surreal — mais concentrado na escola, mais respeitoso em casa. O jiu-jitsu formou o caráter dele.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150&h=150",
-    name: "Marcos Oliveira",
-    role: "Pai — filho treina há 1 ano",
+    text: "Comecei Jiu-Jitsu na unidade e me senti extremamente confortável e motivado a continuar. Ter um professor atleta é um diferencial muito grande.",
+    name: "Gerson Costa",
+    role: "Avaliação no Google — há 1 ano",
     stars: 5,
   },
   {
-    text: "Ganhei três campeonatos pelo estado treinando aqui. A metodologia Gracie Barra é séria, o professor sabe exatamente o que faz. Se você quer competir de verdade, esse é o lugar certo.",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=150&h=150",
-    name: "Pedro Alves",
-    role: "Competidor — 4 anos",
+    text: "Ótima academia de Jiu-Jitsu! Ambiente super acolhedor, professores altamente qualificados e sempre dispostos a ajudar no desenvolvimento técnico e físico dos alunos.",
+    name: "Bruno Mendes",
+    role: "Avaliação no Google — há 1 ano",
     stars: 5,
   },
   {
-    text: "Comecei sedentária e sem nunca ter feito esporte. Hoje já sinto a evolução a cada semana. Os professores são pacientes, explicam bem e a turma de iniciantes é acolhedora demais.",
-    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150&h=150",
-    name: "Ana Beatriz",
-    role: "Aluna iniciante — 6 meses",
+    text: "Excelente lugar para treinar jiu-jítsu! Ambiente acolhedor, professores extremamente capacitados e dedicados ao desenvolvimento dos alunos, independentemente do nível.",
+    name: "Andre Luiz",
+    role: "Local Guide — há 1 ano",
     stars: 5,
   },
   {
-    text: "O jiu-jitsu mudou minha forma de lidar com pressão no trabalho. Aprendi que a técnica sempre supera a força — dentro e fora do tatame. Gracie Barra Planalto é referência.",
-    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=150&h=150",
-    name: "Lucas Ferreira",
-    role: "Aluno adulto — 2 anos",
+    text: "Academia espetacular! Seguindo todos os protocolos da Gracie Barra. Organização nota 10. Sem falar que o professor é simplesmente Campeão do Mundo, uma referência.",
+    name: "Fábio Almeida",
+    role: "Avaliação no Google — há 1 ano",
     stars: 5,
   },
   {
-    text: "Minha filha de 6 anos adora as aulas. A pedagogia é incrível — ensinam disciplina, respeito e confiança de um jeito que ela absorve naturalmente. Resultado visível em casa.",
-    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=150&h=150",
-    name: "Juliana Costa",
-    role: "Mãe — filha treina há 8 meses",
+    text: "Espaço mto bom, bem equipado. O professor Vini e a professora Dada de Jiu-jitsu são muito cuidadosos e pacientes. Nem dá pra ver o tempo passar.",
+    name: "Graciele Pereira",
+    role: "Local Guide — há 4 anos",
     stars: 5,
   },
   {
-    text: "Voltei a treinar após 10 anos parado. A equipe me recebeu sem julgamento, no meu próprio ritmo. Em 6 meses já estava competindo novamente. Estrutura de alto nível.",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150&h=150",
-    name: "Rodrigo Lima",
-    role: "Praticante veterano — 6 meses",
+    text: "Sempre tive muito receio de fazer atividade física, pois sou cardiopata. E a GB Planalto me surpreendeu positivamente. Os professores são feras, vão no nosso ritmo.",
+    name: "Fabricio Oliveira",
+    role: "Local Guide — há 4 anos",
     stars: 5,
   },
   {
-    text: "O diferencial aqui é a constância dos professores. Cada aula tem propósito, progressão clara. Em um ano evoluí mais do que em três anos em outras academias.",
-    image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=150&h=150",
-    name: "Fernanda Souza",
-    role: "Aluna — 1 ano",
+    text: "As aulas de jiu-jitsu são excepcionais. O professor Vinicius possui um conhecimento e uma bagagem na luta tremendos, e passa seu conhecimento com muita paciência, atenção e cuidado com os alunos.",
+    name: "João Vitor Moraes",
+    role: "Local Guide — há 4 anos",
     stars: 5,
   },
 ];
@@ -91,7 +82,7 @@ const StarRating = ({ count }: { count: number }) => (
   </div>
 );
 
-const TestimonialCard = ({ text, image, name, role, stars }: Testimonial) => (
+const TestimonialCard = ({ text, name, role, stars }: Testimonial) => (
   <motion.li
     whileHover={{
       scale: 1.025,
@@ -119,13 +110,10 @@ const TestimonialCard = ({ text, image, name, role, stars }: Testimonial) => (
         &ldquo;{text}&rdquo;
       </p>
       <footer className="flex items-center gap-3 mt-6">
-        <img
-          width={40}
-          height={40}
-          src={image}
-          alt={`Foto de ${name}`}
-          className="h-10 w-10 rounded-full object-cover"
-          style={{ border: "2px solid rgba(247,0,0,0.2)" }}
+        <UserCircleIcon
+          size={40}
+          weight="fill"
+          style={{ color: "rgba(10,14,26,0.2)" }}
         />
         <div className="flex flex-col flex-1">
           <cite

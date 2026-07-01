@@ -12,7 +12,9 @@ const IMAGES = [
   { src: "./vinny-bjj.jpeg",        alt: "Professor Vinicius" },
   { src: "./vinicius-falando.jpeg",  alt: "Evento na academia" },
   { src: "./pai-e-filho-bjj-2.jpeg", alt: "Família no tatame" },
-  { src: "./turmadada.jpeg",         alt: "Turma da academia" },
+  { src: "./dudu-ensinando.jpeg",         alt: "Turma da academia" },
+  { src: "./mae-e-filho-bjj.jpeg", alt: "Mãe e filho em aula especial"},
+  { src: "./cabecao-1.jpeg", alt: "Nossos alunos Gustavo e João Paulo treinando"}
 ];
 
 const AMENITIES = [
