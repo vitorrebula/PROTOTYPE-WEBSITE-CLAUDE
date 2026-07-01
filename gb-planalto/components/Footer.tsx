@@ -51,15 +51,16 @@ export default function Footer() {
             </p>
             <div className="flex gap-3">
               {[
-                { icon: InstagramLogoIcon, href: "#" },
-                { icon: FacebookLogoIcon, href: "#" },
-                { icon: WhatsappLogoIcon, href: "https://wa.me/553125310071" },
-              ].map(({ icon: Icon, href }, i) => (
+                { icon: InstagramLogoIcon, href: "#", label: "Instagram" },
+                { icon: FacebookLogoIcon, href: "#", label: "Facebook" },
+                { icon: WhatsappLogoIcon, href: "https://wa.me/553125310071", label: "WhatsApp" },
+              ].map(({ icon: Icon, href, label }, i) => (
                 <a
                   key={i}
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={label}
                   className="w-10 h-10 rounded-sm flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5"
                   style={{
                     background: "rgba(255,255,255,0.05)",

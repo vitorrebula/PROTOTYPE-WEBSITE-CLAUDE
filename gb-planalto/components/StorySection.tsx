@@ -207,13 +207,13 @@ export default function StorySection() {
                   }}>
                     <Icon size={20} strokeWidth={1.5} />
                   </div>
-                  <h4 className="value-card-title" style={{
+                  <h3 className="value-card-title" style={{
                     fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 18,
                     color: "#fff", letterSpacing: "0.02em", textTransform: "uppercase",
                     margin: "0 0 7px",
                   }}>
                     {title}
-                  </h4>
+                  </h3>
                   <p className="value-card-body" style={{
                     fontFamily: "var(--font-body)", fontWeight: 300, fontSize: 13,
                     lineHeight: 1.55, color: "rgba(255,255,255,0.58)", margin: 0,

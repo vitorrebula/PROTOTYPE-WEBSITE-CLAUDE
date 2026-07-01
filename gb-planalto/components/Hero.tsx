@@ -148,6 +148,8 @@ export default function Hero() {
           <img
             src="./cabecao-1.jpeg"
             alt=""
+            fetchPriority="high"
+            loading="eager"
             className="w-full h-full object-cover"
             style={{
               filter: "grayscale(15%) contrast(1.05) brightness(0.55)",
