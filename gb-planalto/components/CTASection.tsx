@@ -18,7 +18,7 @@ export default function CTASection() {
       {/* Background */}
       <div className="absolute inset-0">
         <img
-          src="https://picsum.photos/seed/bjjfinal/1920/1080"
+          src="./luta-2.jpeg"
           alt=""
           className="w-full h-full object-cover"
           style={{ filter: "grayscale(40%) brightness(0.2) contrast(1.1)" }}
