@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Lato, Barlow_Condensed } from "next/font/google";
+import LoadingScreen from "@/components/LoadingScreen";
 import "./globals.css";
 
 const lato = Lato({
@@ -38,9 +39,10 @@ export default function RootLayout({
   return (
     <html
       lang="pt-BR"
-      className={`${lato.variable} ${barlow.variable} h-full antialiased`}
+      className={`${lato.variable} ${barlow.variable} h-full antialiased intro-locking`}
     >
       <body className="min-h-full bg-black text-white overflow-x-hidden">
+        <LoadingScreen />
         {children}
       </body>
     </html>

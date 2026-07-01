@@ -169,6 +169,22 @@ export default function Footer() {
             Parte da rede Gracie Barra International
           </p>
         </div>
+
+        <div className="flex justify-center mt-10">
+          <a
+            href="https://wa.me/5531995030102"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition-colors duration-200 hover:text-white"
+            style={{
+              fontFamily: "var(--font-lato), Lato, sans-serif",
+              fontSize: "11px",
+              color: "rgba(255,255,255,0.15)",
+            }}
+          >
+            Quer um site como esse? clique aqui
+          </a>
+        </div>
       </div>
     </footer>
   );

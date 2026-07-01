@@ -25,6 +25,37 @@
 html {
   scroll-behavior: smooth;
   background: #FFFFFF;
+  scrollbar-width: thin;
+  scrollbar-color: var(--gb-red) transparent;
+}
+
+/* Blocks all scroll/drag during the intro — present in the very first
+   server-rendered HTML, so there's no JS-timing gap where the page is
+   scrollable before the loading screen's own lock code has run. */
+html.intro-locking,
+html.intro-locking body {
+  overflow: hidden !important;
+  overscroll-behavior: none;
+  touch-action: none;
+}
+
+/* Scrollbar — thin red */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gb-red);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c40000;
 }
 
 body {
@@ -224,4 +255,14 @@ body {
   .animate-spotlight {
     animation: spotlight 2s ease 0.75s 1 forwards;
   }
+}
+
+/* Loading screen — logo intro */
+@keyframes loading-logo-in {
+  from { opacity: 0; transform: scale(0.85); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.loading-logo-in {
+  animation: loading-logo-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
 }

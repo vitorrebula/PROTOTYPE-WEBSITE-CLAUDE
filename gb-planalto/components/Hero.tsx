@@ -16,6 +16,8 @@ export default function Hero() {
   const statsRef = useRef<HTMLDivElement>(null);
   const bgRef = useRef<HTMLDivElement>(null);
   const dropdownBtnRef = useRef<HTMLButtonElement>(null);
+  const logoDesktopRef = useRef<HTMLImageElement>(null);
+  const logoMobileRef = useRef<HTMLImageElement>(null);
 
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [dropdownCoords, setDropdownCoords] = useState({ top: 0, centerX: 0 });
@@ -45,16 +47,39 @@ export default function Hero() {
       ctaRef.current,
       statsRef.current,
     ].filter(Boolean) as HTMLElement[];
+    const logos = [logoDesktopRef.current, logoMobileRef.current].filter(Boolean) as HTMLElement[];
 
-    elements.forEach((el, i) => {
+    elements.forEach((el) => {
       el.style.opacity = "0";
       el.style.transform = "translateY(32px)";
-      setTimeout(() => {
-        el.style.transition = "opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1)";
-        el.style.opacity = "1";
-        el.style.transform = "translateY(0)";
-      }, 150 + i * 140);
     });
+    // Hidden until the loading screen's flying logo lands in this exact
+    // spot — swapping in instantly there reads as one continuous logo,
+    // instead of a second, static one sitting here the whole time.
+    logos.forEach((el) => {
+      el.style.opacity = "0";
+    });
+
+    let revealed = false;
+    const reveal = () => {
+      if (revealed) return;
+      revealed = true;
+      logos.forEach((el) => {
+        el.style.opacity = "1";
+      });
+      elements.forEach((el, i) => {
+        setTimeout(() => {
+          el.style.transition = "opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1)";
+          el.style.opacity = "1";
+          el.style.transform = "translateY(0)";
+        }, i * 140);
+      });
+    };
+
+    // Waits for the loading-screen intro to finish before revealing —
+    // falls back to a fixed delay if that event never arrives.
+    window.addEventListener("gb:intro-done", reveal, { once: true });
+    const fallback = setTimeout(reveal, 4000);
 
     const onScroll = () => {
       if (bgRef.current) {
@@ -63,7 +88,11 @@ export default function Hero() {
       }
     };
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => {
+      window.removeEventListener("gb:intro-done", reveal);
+      window.removeEventListener("scroll", onScroll);
+      clearTimeout(fallback);
+    };
   }, []);
 
   return (
@@ -183,12 +212,15 @@ export default function Hero() {
             {/* Logo — desktop only, large, left column */}
             <div className="hidden md:block select-none">
               <img
+                id="hero-logo-desktop"
+                ref={logoDesktopRef}
                 src="./logo-gb.png"
                 alt="Gracie Barra Planalto"
                 style={{
                   width: "100%",
                   maxWidth: "440px",
                   height: "auto",
+                  opacity: 0,
                 }}
               />
             </div>
@@ -214,12 +246,14 @@ export default function Hero() {
               {/* Logo — mobile only, above headline */}
               <div className="flex md:hidden items-center justify-center mb-5 select-none">
                 <img
+                  id="hero-logo-mobile"
+                  ref={logoMobileRef}
                   src="./logo-gb.png"
                   alt="Gracie Barra Planalto"
                   style={{
                     width: "min(48vw, 220px)",
                     height: "auto",
-                    opacity: 1,
+                    opacity: 0,
                   }}
                 />
               </div>
