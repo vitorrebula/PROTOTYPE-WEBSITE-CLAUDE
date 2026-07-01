@@ -25,7 +25,7 @@ const instructors = [
   },
   {
     name: "Prof. Dadá",
-    belt: "Faixa Prata — 1 Grau",
+    belt: "Faixa Preta — 1 Grau",
     role: "Instrutora Feminino, Adulto & Kids",
     years: "15 anos de experiência",
     bio: "Pioneira no programa feminino da academia, Dadá criou um ambiente único de sororidade e técnica. Também atua nas turmas adulto e infantil, com sensibilidade e didática para todos os perfis de aluno.",
