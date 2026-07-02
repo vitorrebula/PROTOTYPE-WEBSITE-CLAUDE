@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useLayoutEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { UserCircleIcon } from "@phosphor-icons/react";
 
@@ -187,6 +187,16 @@ const TestimonialsColumn = ({
 );
 
 export default function TestimonialsSection() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useLayoutEffect(() => {
+    const mq = window.matchMedia("(max-width: 768px)");
+    setIsMobile(mq.matches);
+    const onChange = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+
   return (
     <section
       id="depoimentos"
@@ -195,10 +205,10 @@ export default function TestimonialsSection() {
       style={{ background: "#F5F6F8" }}
     >
       <motion.div
-        initial={{ opacity: 0, y: 40 }}
+        initial={{ opacity: 0, y: isMobile ? 12 : 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.15 }}
-        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: isMobile ? 0.3 : 1, ease: [0.16, 1, 0.3, 1] }}
         className="relative z-10 w-full max-w-6xl mx-auto px-6"
       >
         {/* Header */}
