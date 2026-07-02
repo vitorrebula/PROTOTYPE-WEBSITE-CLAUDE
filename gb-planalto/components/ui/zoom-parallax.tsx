@@ -2,6 +2,7 @@
 
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 
 interface Image {
@@ -74,10 +75,13 @@ export function ZoomParallax({ images }: ZoomParallaxProps) {
 								height: pos.height,
 							}}
 						>
-							<img
+							<Image
 								src={src || '/placeholder.svg'}
 								alt={alt || `Parallax image ${index + 1}`}
-								className="h-full w-full object-cover"
+								fill
+								sizes="35vw"
+								loading="lazy"
+								className="object-cover"
 							/>
 						</div>
 					</div>

@@ -1,20 +1,21 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const IMAGES = [
-  { src: "./luta-1.jpeg",           alt: "Treino na academia" },
-  { src: "./luta-2.jpeg",           alt: "Treino técnico" },
-  { src: "./luta-3.jpeg",           alt: "Sparring" },
-  { src: "./vinny-bjj.jpeg",        alt: "Professor Vinicius" },
-  { src: "./vinicius-falando.jpeg",  alt: "Evento na academia" },
-  { src: "./pai-e-filho-bjj-2.jpeg", alt: "Família no tatame" },
-  { src: "./dudu-ensinando.jpeg",         alt: "Turma da academia" },
-  { src: "./mae-e-filho-bjj.jpeg", alt: "Mãe e filho em aula especial"},
-  { src: "./cabecao-1.jpeg", alt: "Nossos alunos Gustavo e João Paulo treinando"}
+  { src: "/luta-1.jpeg",           alt: "Treino na academia" },
+  { src: "/luta-2.jpeg",           alt: "Treino técnico" },
+  { src: "/luta-3.jpeg",           alt: "Sparring" },
+  { src: "/vinny-bjj.jpeg",        alt: "Professor Vinicius" },
+  { src: "/vinicius-falando.jpeg",  alt: "Evento na academia" },
+  { src: "/pai-e-filho-bjj-2.jpeg", alt: "Família no tatame" },
+  { src: "/dudu-ensinando.jpeg",         alt: "Turma da academia" },
+  { src: "/mae-e-filho-bjj.jpeg", alt: "Mãe e filho em aula especial"},
+  { src: "/cabecao-1.jpeg", alt: "Nossos alunos Gustavo e João Paulo treinando"}
 ];
 
 const AMENITIES = [
@@ -78,13 +79,15 @@ export default function FacilitiesSection() {
                       : "inset(0 0 0 0 round 1rem)",
                 }}
                 transition={{ duration: 0.5, ease: [0.25, 1, 0.5, 1] }}
-                className="w-full overflow-hidden rounded-2xl aspect-[3/4] shadow-xl mx-2"
+                className="relative w-full overflow-hidden rounded-2xl aspect-[3/4] shadow-xl mx-2"
               >
-                <img
+                <Image
                   src={image.src}
                   alt={image.alt}
+                  fill
+                  sizes="(min-width: 1024px) 30vw, (min-width: 768px) 38vw, (min-width: 640px) 50vw, 75vw"
                   onClick={() => window.open('https://instagram.com/gbplanalto', '_blank')}
-                  className="h-full w-full scale-105 object-cover"
+                  className="scale-105 object-cover"
                   loading="lazy"
                 />
               </motion.div>

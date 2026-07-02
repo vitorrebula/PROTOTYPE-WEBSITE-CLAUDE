@@ -1,6 +1,7 @@
 "use client";
 
 import { useLayoutEffect, useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 // Any public/ photo is eligible except logos and stock next.js icons.
 const BACKGROUND_IMAGES = [
@@ -184,19 +185,25 @@ export default function LoadingScreen() {
       {bgImage && (
         <>
           <div className="absolute inset-0">
-            <img
-              src={`./${bgImage}`}
+            <Image
+              src={`/${bgImage}`}
               alt=""
-              className="absolute inset-0 w-full h-full object-cover"
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover"
               style={{ opacity: 0.32, filter: "grayscale(20%) contrast(1.05) brightness(0.5)" }}
             />
             {/* Same crop/filter Hero uses on its own bg — crossfades in
                 during the flight so the cut to the real hero is seamless. */}
-            <img
+            <Image
               ref={heroBgRef}
-              src="./cabecao-1.jpeg"
+              src="/cabecao-1.jpeg"
               alt=""
-              className="absolute inset-0 w-full h-full object-cover"
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover"
               style={{
                 opacity: 0,
                 filter: "grayscale(15%) contrast(1.05) brightness(0.55)",
@@ -219,10 +226,13 @@ export default function LoadingScreen() {
               style={{ background: "linear-gradient(0deg, #07101F 0%, transparent 100%)", opacity: 0 }}
             />
           </div>
-          <img
+          <Image
             ref={logoRef}
-            src="./logo-gb.png"
+            src="/logo-gb.png"
             alt="Gracie Barra Planalto"
+            width={1008}
+            height={1056}
+            priority
             className="loading-logo-in relative"
             style={{ width: "clamp(190px, 42vw, 260px)", height: "auto", willChange: "transform" }}
           />

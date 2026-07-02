@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import { ArrowRightIcon, WhatsappLogoIcon } from "@phosphor-icons/react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
@@ -17,10 +18,13 @@ export default function CTASection() {
     >
       {/* Background */}
       <div className="absolute inset-0">
-        <img
-          src="./luta-2.jpeg"
+        <Image
+          src="/luta-2.jpeg"
           alt=""
-          className="w-full h-full object-cover"
+          fill
+          sizes="100vw"
+          loading="lazy"
+          className="object-cover"
           style={{ filter: "grayscale(40%) brightness(0.2) contrast(1.1)" }}
         />
         <div

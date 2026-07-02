@@ -4,31 +4,31 @@ import { ZoomParallax } from '@/components/ui/zoom-parallax';
 
 const images = [
 	{
-		src: './1.jpeg',
+		src: '/1.jpeg',
 		alt: 'Projeto da academia',
 	},
 	{
-		src: './2.jpeg',
+		src: '/2.jpeg',
 		alt: 'Projeto da academia',
 	},
 	{
-		src: './3.jpeg',
+		src: '/3.jpeg',
 		alt: 'Projeto da academia',
 	},
 	{
-		src: './4.jpeg',
+		src: '/4.jpeg',
 		alt: 'Projeto da academia',
 	},
 	{
-		src: './5.jpeg',
+		src: '/5.jpeg',
 		alt: 'Projeto da academia',
 	},
 	{
-		src: './6.jpeg',
+		src: '/6.jpeg',
 		alt: 'Projeto da academia',
 	},
 	{
-		src: './7.jpeg',
+		src: '/7.jpeg',
 		alt: 'Projeto da academia',
 	},
 ];

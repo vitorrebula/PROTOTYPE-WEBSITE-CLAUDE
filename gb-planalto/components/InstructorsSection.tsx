@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
+import Image from "next/image";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const instructors = [
@@ -10,7 +11,7 @@ const instructors = [
     role: "Fundador & Head Coach",
     years: "15 anos de experiência",
     bio: "Graduado à faixa preta pelas mãos de Vinicius Draculino, seguindo os passos de Sérgio 'Seginho' Benini e Cláudio 'Caloquinha', Jones construiu a GB Planalto com a missão de espalhar o jiu-jitsu de alto nível. Campeão brasileiro, mundial, mineiro, sulamericano e sulbrasileiro — referência técnica da região.",
-    img: "./jonin.jpeg",
+    img: "/jonin.jpeg",
     imgPosition: "top",
     specialties: ["Fundamentos", "Competição", "Adulto"],
   },
@@ -20,7 +21,7 @@ const instructors = [
     role: "Instrutor KIDS & Adulto",
     years: "20 anos de judô · 14 de Jiu-Jitsu",
     bio: "Com 20 anos de judô e 14 de jiu-jitsu, Dudu é um professor técnico e paciente. Coordena o time KIDS e as turmas adulto, com uma didática que permite até os menos atléticos desenvolverem um jiu-jitsu afiado.",
-    img: "./dudu-ensinando.jpeg",
+    img: "/dudu-ensinando.jpeg",
     specialties: ["KIDS", "Juvenil", "Adulto"],
   },
   {
@@ -29,7 +30,7 @@ const instructors = [
     role: "Instrutora Feminino, Adulto & Kids",
     years: "15 anos de experiência",
     bio: "Pioneira no programa feminino da academia, Dadá criou um ambiente único de sororidade e técnica. Também atua nas turmas adulto e infantil, com sensibilidade e didática para todos os perfis de aluno.",
-    img: "./dada-1.jpeg",
+    img: "/dada-1.jpeg",
     specialties: ["Feminino", "Adulto", "Kids"],
   },
 ];
@@ -152,15 +153,16 @@ export default function InstructorsSection() {
                 >
                   {/* Image */}
                   <div className="relative overflow-hidden" style={{ aspectRatio: "4/3" }}>
-                    <img
+                    <Image
                       src={inst.img}
                       alt={inst.name}
-                      className="w-full h-full object-cover"
+                      fill
+                      sizes="100vw"
+                      className="object-cover"
                       style={{
                         filter: "grayscale(0%) brightness(1) contrast(1.05)",
                         objectPosition: inst.imgPosition ?? "center",
                         pointerEvents: "none",
-                        draggable: false,
                       } as React.CSSProperties}
                     />
                     <div
@@ -283,10 +285,12 @@ export default function InstructorsSection() {
             >
               {/* Image */}
               <div className="relative overflow-hidden" style={{ aspectRatio: "3/4" }}>
-                <img
+                <Image
                   src={inst.img}
                   alt={inst.name}
-                  className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
+                  fill
+                  sizes="(min-width: 768px) 33vw, 100vw"
+                  className="object-cover transition-all duration-700 group-hover:scale-105"
                   style={{ objectPosition: inst.imgPosition ?? "center" }}
                 />
                 <div

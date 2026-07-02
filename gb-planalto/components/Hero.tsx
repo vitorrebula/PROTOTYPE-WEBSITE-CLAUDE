@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { ArrowRightIcon, WhatsappLogoIcon, CaretDownIcon } from "@phosphor-icons/react";
 
 const stats = [
@@ -174,12 +175,15 @@ export default function Hero() {
       >
         {/* Background image with parallax */}
         <div ref={bgRef} className="absolute inset-0 will-change-transform">
-          <img
-            src="./cabecao-1.jpeg"
+          <Image
+            src="/cabecao-1.jpeg"
             alt=""
+            fill
+            priority
             fetchPriority="high"
-            loading="eager"
-            className="w-full h-full object-cover"
+            sizes="100vw"
+            quality={70}
+            className="object-cover"
             style={{
               filter: "grayscale(15%) contrast(1.05) brightness(0.55)",
               transform: "scale(1.1)",
@@ -211,11 +215,14 @@ export default function Hero() {
           <div className="flex flex-col items-center text-center md:grid md:grid-cols-[1fr_1.2fr] md:items-center md:text-left md:gap-16">
             {/* Logo — desktop only, large, left column */}
             <div className="hidden md:block select-none">
-              <img
+              <Image
                 id="hero-logo-desktop"
                 ref={logoDesktopRef}
-                src="./logo-gb.png"
+                src="/logo-gb.png"
                 alt="Gracie Barra Planalto"
+                width={1008}
+                height={1056}
+                priority
                 style={{
                   width: "100%",
                   maxWidth: "440px",
@@ -245,11 +252,14 @@ export default function Hero() {
 
               {/* Logo — mobile only, above headline */}
               <div className="flex md:hidden items-center justify-center mb-5 select-none">
-                <img
+                <Image
                   id="hero-logo-mobile"
                   ref={logoMobileRef}
-                  src="./logo-gb.png"
+                  src="/logo-gb.png"
                   alt="Gracie Barra Planalto"
+                  width={1008}
+                  height={1056}
+                  priority
                   style={{
                     width: "min(48vw, 220px)",
                     height: "auto",

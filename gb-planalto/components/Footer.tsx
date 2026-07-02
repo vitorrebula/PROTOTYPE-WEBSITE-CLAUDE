@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { WhatsappLogoIcon, InstagramLogoIcon, FacebookLogoIcon, MapPinIcon, PhoneIcon, EnvelopeIcon } from "@phosphor-icons/react";
 
 export default function Footer() {
@@ -16,9 +17,12 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-6">
-              <img
-                src="./logo-gb.png"
+              <Image
+                src="/logo-gb.png"
                 alt="Gracie Barra Planalto"
+                width={52}
+                height={52}
+                loading="lazy"
                 className="object-contain"
                 style={{ width: "52px", height: "52px" }}
               />

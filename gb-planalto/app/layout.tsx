@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Lato, Barlow_Condensed } from "next/font/google";
+import Script from "next/script";
 import LoadingScreen from "@/components/LoadingScreen";
 import "./globals.css";
 
@@ -42,6 +43,13 @@ export default function RootLayout({
       className={`${lato.variable} ${barlow.variable} h-full antialiased intro-locking`}
     >
       <body className="min-h-full bg-black text-white overflow-x-hidden">
+        {/* Runs before hydration so the browser's own scroll-restoration
+            (which otherwise fights the loading screen's scrollTo(0,0) on
+            reload and yanks the page back down mid-transition) never gets
+            a chance to kick in. */}
+        <Script id="disable-scroll-restoration" strategy="beforeInteractive">
+          {`try{if('scrollRestoration' in history){history.scrollRestoration='manual';}window.scrollTo(0,0);}catch(e){}`}
+        </Script>
         <LoadingScreen />
         {children}
       </body>

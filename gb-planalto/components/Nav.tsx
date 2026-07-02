@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import { ListIcon, XIcon, CaretDownIcon, ArrowRightIcon, WhatsappLogoIcon } from "@phosphor-icons/react";
 
 const links = [
@@ -59,9 +60,11 @@ export default function Nav() {
             transition: "opacity 0.5s cubic-bezier(0.16,1,0.3,1)",
           }}
         >
-          <img
-            src="./logo-gb.png"
+          <Image
+            src="/logo-gb.png"
             alt="Gracie Barra Planalto"
+            width={60}
+            height={60}
             className="object-contain transition-all duration-500 group-hover:scale-105"
             style={{ width: "60px", height: "60px" }}
           />

@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
+import Image from "next/image";
 import { Shield, Users, Trophy, Heart } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
@@ -126,11 +127,13 @@ export default function StorySection() {
                 boxShadow: "inset 0 1px 1px rgba(255,255,255,0.08)",
               }}
             >
-              <img
-                src="./vinicius-falando.jpeg"
+              <Image
+                src="/vinicius-falando.jpeg"
                 alt="Turma da Gracie Barra Planalto"
+                fill
+                sizes="(min-width: 769px) 55vw, 100vw"
+                loading="lazy"
                 style={{
-                  position: "absolute", inset: 0, width: "100%", height: "100%",
                   objectFit: "cover", filter: "grayscale(15%) contrast(1.05) brightness(0.72)",
                 }}
               />
