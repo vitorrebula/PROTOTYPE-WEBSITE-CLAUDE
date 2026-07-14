@@ -17,7 +17,7 @@ const instructors = [
   },
   {
     name: "Prof. Eduardo Laia",
-    belt: "Faixa Marrom — 4 Graus",
+    belt: "Faixa Preta",
     role: "Instrutor KIDS & Adulto",
     years: "20 anos de judô · 14 de Jiu-Jitsu",
     bio: "Com 20 anos de judô e 14 de jiu-jitsu, Dudu é um professor técnico e paciente. Coordena o time KIDS e as turmas adulto, com uma didática que permite até os menos atléticos desenvolverem um jiu-jitsu afiado.",
